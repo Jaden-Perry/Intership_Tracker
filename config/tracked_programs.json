@@ -1,0 +1,86 @@
+[
+  {
+    "firm_id": "goldman_sachs",
+    "firm": "Goldman Sachs",
+    "program_name": "Possibilities Series (freshman/sophomore)",
+    "program_keyword": "Possibilities",
+    "note": "Confirmed recurring program; not yet posted for this cycle as of last check."
+  },
+  {
+    "firm_id": "jpmorgan",
+    "firm": "JPMorgan Chase",
+    "program_name": "Sophomore Edge",
+    "program_keyword": "Sophomore Edge",
+    "note": "Confirmed recurring program; JPM also runs affinity-specific sophomore tracks (Winning Women, Launching Leaders) that rotate year to year."
+  },
+  {
+    "firm_id": "bank_of_america",
+    "firm": "Bank of America",
+    "program_name": "Global Investment Banking Sophomore Summer Analyst Program",
+    "program_keyword": "Sophomore",
+    "note": "Confirmed recurring program; not yet posted for this cycle as of last check."
+  },
+  {
+    "firm_id": "morgan_stanley_ibd",
+    "firm": "Morgan Stanley (Investment Banking)",
+    "program_name": "Sophomore Early Insights Program",
+    "program_keyword": "Early Insight",
+    "note": "Branding/division scope varies year to year; verify exact name once posted."
+  },
+  {
+    "firm_id": "citi",
+    "firm": "Citi",
+    "program_name": "Sophomore Leadership Program",
+    "program_keyword": "Sophomore Leadership",
+    "note": "10-week NYC program historically requiring 3.3+ GPA; not yet posted as of last check."
+  },
+  {
+    "firm_id": "evercore",
+    "firm": "Evercore",
+    "program_name": "Sophomore Diversity Leadership Summit / Sophomore Diversity Day",
+    "program_keyword": "Sophomore",
+    "note": "Diversity-focused eligibility; exact name varies by year."
+  },
+  {
+    "firm_id": "moelis",
+    "firm": "Moelis & Company",
+    "program_name": "Leadership Development Program (LDP)",
+    "program_keyword": "Leadership Development",
+    "note": "January event for sophomores; not yet posted as of last check."
+  },
+  {
+    "firm_id": "lazard",
+    "firm": "Lazard",
+    "program_name": "Early Insights Program",
+    "program_keyword": "Early Insight",
+    "note": "First-year/sophomore workshop; naming not fully reconciled with SA cycle branding."
+  },
+  {
+    "firm_id": "rothschild",
+    "firm": "Rothschild & Co",
+    "program_name": "US Global Advisory Sophomore Leadership Program / Sophomore Women's Program",
+    "program_keyword": "Sophomore",
+    "note": "Not yet posted as of last check."
+  },
+  {
+    "firm_id": "guggenheim",
+    "firm": "Guggenheim Securities",
+    "program_name": "Sophomore FOCUS Program",
+    "program_keyword": "FOCUS",
+    "note": "Access/diversity-oriented eligibility; guaranteed interview into the Summer Analyst program."
+  },
+  {
+    "firm_id": "blackstone",
+    "firm": "Blackstone",
+    "program_name": "Blackstone LaunchPad Summer Analyst Program (Sophomores)",
+    "program_keyword": "LaunchPad",
+    "note": "First-gen/low-income focused pipeline program; distinct from the main Summer Analyst/Full-Time programs on Blackstone's Workday board."
+  },
+  {
+    "firm_id": "morgan_stanley_wm",
+    "firm": "Morgan Stanley Wealth Management",
+    "program_name": "Wealth Management Sophomore Summer Analyst Program (New York)",
+    "program_keyword": "Sophomore",
+    "note": "Could not confirm a 2027-labeled posting is live yet as of last check."
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "goldman_sachs",
+    "name": "Goldman Sachs",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": { "type": "html", "url": "https://higher.gs.com/campus" }
+  },
+  {
+    "id": "jpmorgan",
+    "name": "JPMorgan Chase",
+    "category": "bulge_bracket",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://careers.jpmorgan.com/us/en/students/programs" }
+  },
+  {
+    "id": "bank_of_america",
+    "name": "Bank of America",
+    "category": "bulge_bracket",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://careers.bankofamerica.com/en-us/students/job-search.html" }
+  },
+  {
+    "id": "morgan_stanley_ibd",
+    "name": "Morgan Stanley (Investment Banking)",
+    "category": "bulge_bracket",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://morganstanley.eightfold.ai/careers?query=Summer%20Analyst%20Sophomore%20Program%20Early%20Insights" }
+  },
+  {
+    "id": "citi",
+    "name": "Citi",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": { "type": "html", "url": "https://jobs.citi.com/summer-analyst-programs" }
+  },
+  {
+    "id": "evercore",
+    "name": "Evercore",
+    "category": "eb_mm",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://www.evercore.com/careers/students-graduates/students-graduates-u-s/" }
+  },
+  {
+    "id": "moelis",
+    "name": "Moelis & Company",
+    "category": "eb_mm",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://www.moelis.com/careers/explore-opportunities/?tab=students-and-graduates" }
+  },
+  {
+    "id": "pjt_partners",
+    "name": "PJT Partners",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://pjtpartners.wd1.myworkdayjobs.com/Students",
+      "api_url": "https://pjtpartners.wd1.myworkdayjobs.com/wday/cxs/pjtpartners/Students/jobs",
+      "job_base": "https://pjtpartners.wd1.myworkdayjobs.com/Students"
+    }
+  },
+  {
+    "id": "lazard",
+    "name": "Lazard",
+    "category": "eb_mm",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://www.lazard.com/careers/students/" }
+  },
+  {
+    "id": "centerview",
+    "name": "Centerview Partners",
+    "category": "eb_mm",
+    "confidence": "very_low",
+    "fetch": { "type": "html", "url": "https://www.centerviewpartners.com/careers.aspx" }
+  },
+  {
+    "id": "rothschild",
+    "name": "Rothschild & Co",
+    "category": "eb_mm",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/" }
+  },
+  {
+    "id": "guggenheim",
+    "name": "Guggenheim Securities",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://guggenheim.wd1.myworkdayjobs.com/Guggenheim_Undergraduate_Programs",
+      "api_url": "https://guggenheim.wd1.myworkdayjobs.com/wday/cxs/guggenheim/Guggenheim_Undergraduate_Programs/jobs",
+      "job_base": "https://guggenheim.wd1.myworkdayjobs.com/Guggenheim_Undergraduate_Programs"
+    }
+  },
+  {
+    "id": "blackstone",
+    "name": "Blackstone",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers",
+      "api_url": "https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Campus_Careers/jobs",
+      "job_base": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers"
+    }
+  },
+  {
+    "id": "kkr",
+    "name": "KKR",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "staged" }
+  },
+  {
+    "id": "apollo",
+    "name": "Apollo Global Management",
+    "category": "pe",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers",
+      "api_url": "https://athene.wd5.myworkdayjobs.com/wday/cxs/athene/Apollo_Careers/jobs",
+      "job_base": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers"
+    }
+  },
+  {
+    "id": "carlyle",
+    "name": "The Carlyle Group",
+    "category": "pe",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle",
+      "api_url": "https://carlyle.wd1.myworkdayjobs.com/wday/cxs/carlyle/Carlyle/jobs",
+      "job_base": "https://carlyle.wd1.myworkdayjobs.com/Carlyle"
+    }
+  },
+  {
+    "id": "morgan_stanley_wm",
+    "name": "Morgan Stanley Wealth Management",
+    "category": "wm",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://morganstanley.eightfold.ai/careers?query=Wealth%20Management%20Summer%20Analyst%20Sophomore" }
+  }
+]
