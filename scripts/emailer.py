@@ -53,4 +53,6 @@ def send_alerts(new_postings: list[dict]) -> None:
         },
         timeout=30,
     )
+    if not resp.ok:
+        print(f"Resend API error {resp.status_code}: {resp.text}")
     resp.raise_for_status()
