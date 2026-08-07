@@ -17,7 +17,7 @@ def send_alerts(new_postings: list[dict]) -> None:
 
     api_key = os.environ["RESEND_API_KEY"]
     to_email = os.environ["ALERT_EMAIL"]
-    from_email = os.environ.get("ALERT_FROM_EMAIL", "onboarding@resend.dev")
+    from_email = os.environ.get("ALERT_FROM_EMAIL") or "onboarding@resend.dev"
 
     subject = f"{len(new_postings)} new internship posting" + (
         "s" if len(new_postings) != 1 else ""
