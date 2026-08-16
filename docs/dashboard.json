@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T17:43:17+00:00",
+  "generated_at": "2026-08-16T05:01:10+00:00",
   "open_now": [
     {
       "id": "c6802d773054d828",
@@ -10,7 +10,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14594/bank-of-america-campus-insight-forum-the-power-to-lead-fall-2026-new-york-new-york-united-states",
       "status": "open_now",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -22,7 +22,7 @@
       "url": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardStudentCareers/jobs",
       "status": "open_now",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -34,7 +34,7 @@
       "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/early-insights/",
       "status": "open_now",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -46,7 +46,7 @@
       "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/?taxonomy_1155=724",
       "status": "open_now",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     }
   ],
@@ -138,87 +138,231 @@
   ],
   "not_yet_eligible": [
     {
-      "id": "df27a8d593262aa3",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Services - Summer Analyst Program, New York City - US, 2027",
-      "url": "https://jobs.citi.com/job/new-york/services-summer-analyst-program-new-york-city-us-2027/287/93724104768",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "4a640d6984bc77d2",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Functions - Internal Audit, Summer Analyst - Mississauga, ON 2027",
-      "url": "https://jobs.citi.com/job/mississauga/functions-internal-audit-summer-analyst-mississauga-on-2027/287/93639707120",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "7d407e2b1d64acc8",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Technology - Infrastructure, Summer Analyst, Hungary - Budapest, 2026",
-      "url": "https://jobs.citi.com/job/budapest/technology-infrastructure-summer-analyst-hungary-budapest-2026/287/89041965472",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "e216a1696664857c",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Technology - Cybersecurity, Summer Analyst, Hungary - Budapest, 2026",
-      "url": "https://jobs.citi.com/job/budapest/technology-cybersecurity-summer-analyst-hungary-budapest-2026/287/88904140288",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "8dc9b0673e2e96dc",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Markets - Sales and Trading, Summer Analyst, New York City - US, 2027",
-      "url": "https://jobs.citi.com/job/new-york/markets-sales-and-trading-summer-analyst-new-york-city-us-2027/287/89809477504",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "021b2fbd65575a6d",
+      "id": "e56256b8af57a0c3",
       "firm": "Goldman Sachs",
       "firm_id": "goldman_sachs",
       "category": "bulge_bracket",
-      "title": "2027 | APEJ | Singapore | Operations | Summer Analyst Singapore \u00b7 Summer Analyst",
-      "url": "https://higher.gs.com/roles/168264",
+      "title": "2027 | EMEA | London | Internal Audit | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/181882",
       "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
-      "id": "288f42ec9a14227c",
+      "id": "8cba974c0dd5621b",
       "firm": "Goldman Sachs",
       "firm_id": "goldman_sachs",
       "category": "bulge_bracket",
-      "title": "2027 | APEJ | Taipei | Operations | Summer Analyst Taipei \u00b7 Taiwan \u00b7 Summer Analyst",
-      "url": "https://higher.gs.com/roles/170602",
+      "title": "2027 | EMEA | Birmingham | Internal Audit | Summer Analyst Birmingham \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/181880",
       "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "692795b918c43834",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | Americas | West Palm Beach | Asset Management, Private Investing | Summer Associate West Palm Beach \u00b7 United States \u00b7 Summer Associate",
+      "url": "https://higher.gs.com/roles/180830",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "9fb2f9776998aee6",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | Americas | West Palm Beach | FICC and Equities (Sales and Trading) Quantitative Strats | Summer Analyst West Palm Beach \u00b7 United States \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/181628",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "54ee1a098edcb10f",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | London | The Core Quantitative Strats | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/175426",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "5364b2b7a9546fea",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | London | Investment Banking, Classic | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/170929",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "89172f89ed6610a0",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | London | Wealth Management, Quantitative Finance | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/170860",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "1142c4d8f4110d57",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | London | Operations | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/170158",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "1063da56740413ff",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | Zurich | Wealth Management, Private Wealth Management | Summer Analyst Zurich \u00b7 Switzerland \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/170938",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "bfded0b7ab3c860a",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | EMEA | London | Asset Management, Public Investing | Summer Analyst London \u00b7 United Kingdom \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/173051",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "ee0c5dc9ab0cd3ad",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
+      "category": "bulge_bracket",
+      "title": "2027 | Americas | Bellevue | Engineering | Summer Analyst Seattle \u00b7 United States \u00b7 Summer Analyst",
+      "url": "https://higher.gs.com/roles/177808",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "56d536d73213e5bf",
+      "firm": "Bank of America",
+      "firm_id": "bank_of_america",
+      "category": "bulge_bracket",
+      "title": "Global Investment Banking Summer Associate Program - 2027",
+      "url": "https://careers.bankofamerica.com/en-us/students/job-detail/13930/global-investment-banking-summer-associate-program-2027-multiple-locations",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "3579ae55b604094a",
+      "firm": "Bank of America",
+      "firm_id": "bank_of_america",
+      "category": "bulge_bracket",
+      "title": "Global Technology Summer Analyst Program (Business Analyst) - 2027 - Singapore",
+      "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14729/global-technology-summer-analyst-program-business-analyst-2027-singapore-singapore-singapore",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "2673ccc6a33ed70a",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Commercial Banking, Summer Analyst, Singapore \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/singapore/banking-commercial-banking-summer-analyst-singapore-apac-2027/287/99017365584",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "8dbe59e906c035b9",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Commercial Banking, Summer Analyst, Hong Kong \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/kowloon/banking-commercial-banking-summer-analyst-hong-kong-apac-2027/287/99017365568",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "fea370d925f6c1da",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Commercial Banking - Natural Resources & Energy, Summer Analyst, Houston - US, 2027",
+      "url": "https://jobs.citi.com/job/houston/banking-commercial-banking-natural-resources-and-energy-summer-analyst-houston-us-2027/287/89631582048",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "88e78525ef8d4875",
+      "firm": "Blackstone",
+      "firm_id": "blackstone",
+      "category": "pe",
+      "title": "2027 Blackstone Real Estate Debt Strategies Portfolio Strategy Summer Analyst",
+      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/New-York/XMLNAME-2027-Blackstone-Real-Estate-Debt-Strategies-Portfolio-Strategy-Summer-Analyst_44725",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "fa234e5a7e20f792",
+      "firm": "Blackstone",
+      "firm_id": "blackstone",
+      "category": "pe",
+      "title": "2027 Blackstone Real Estate Sustainability Summer Analyst",
+      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/New-York/XMLNAME-2027-Blackstone-Real-Estate-Sustainability-Summer-Analyst_44724",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "dbfce7f50a362b29",
+      "firm": "Blackstone",
+      "firm_id": "blackstone",
+      "category": "pe",
+      "title": "2027 Blackstone Credit and Insurance, Infrastructure and Asset Based Credit Summer Analyst (London)",
+      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Credit-and-Insurance--Infrastructure-and-Asset-Based-Credit-Summer-Analyst--London-_43862",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -230,7 +374,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14521/global-capital-markets-2027-summer-analyst-dcm-ecm-leveraged-finance-and-ssg-london-london-united-kingdom",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -242,7 +386,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14519/global-corporate-banking-2027-summer-analyst-x2013-london-london-united-kingdom",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -254,19 +398,43 @@
       "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14522/global-investment-banking-2027-summer-analyst-london-london-united-kingdom",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
-      "id": "d3d71dbe8e17ba30",
-      "firm": "Bank of America",
-      "firm_id": "bank_of_america",
+      "id": "2e2128fff3fed3c4",
+      "firm": "Citi",
+      "firm_id": "citi",
       "category": "bulge_bracket",
-      "title": "2027 Japan Summer Analyst Program",
-      "url": "https://careers.bankofamerica.com/en-us/students/job-detail/14545/2027-japan-summer-analyst-program-tokyo-japan",
+      "title": "Banking - Investment Banking, Summer Analyst, Hong Kong \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/hong-kong/banking-investment-banking-summer-analyst-hong-kong-apac-2027/287/98836110080",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "267a3b5fd69cb533",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Corporate Banking, Summer Analyst, Hong Kong \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/hong-kong/banking-corporate-banking-summer-analyst-hong-kong-apac-2027/287/98836109936",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-06T19:40:29+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "b7e75952282164c4",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Corporate Banking, Summer Analyst, China \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/shanghai/banking-corporate-banking-summer-analyst-china-apac-2027/287/98836109920",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-06T19:40:29+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -278,7 +446,19 @@
       "url": "https://jobs.citi.com/job/shanghai/banking-commercial-banking-summer-analyst-china-apac-2027/287/98836109904",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "2247bf919acf5abe",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Capital Markets, Summer Analyst, Hong Kong \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/hong-kong/banking-capital-markets-summer-analyst-hong-kong-apac-2027/287/98836109888",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-06T19:40:29+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -290,7 +470,31 @@
       "url": "https://jobs.citi.com/job/new-york/functions-internal-audit-summer-analyst-new-york-usa-2027/287/98836136896",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "0a8ab76cd7f3d7f8",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Investment Banking, Summer Analyst, Singapore \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/singapore/banking-investment-banking-summer-analyst-singapore-apac-2027/287/98789719008",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-06T19:40:29+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "7f356e9771cceed9",
+      "firm": "Citi",
+      "firm_id": "citi",
+      "category": "bulge_bracket",
+      "title": "Banking - Corporate Banking, Summer Analyst, Singapore \u2013 APAC, 2027",
+      "url": "https://jobs.citi.com/job/singapore/banking-corporate-banking-summer-analyst-singapore-apac-2027/287/98789718640",
+      "status": "not_yet_eligible",
+      "first_seen": "2026-08-06T19:40:29+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -302,7 +506,7 @@
       "url": "https://jobs.citi.com/job/singapore/markets-sales-and-trading-summer-analyst-singapore-2027/287/97603330992",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -314,7 +518,7 @@
       "url": "https://jobs.citi.com/job/hong-kong/markets-sales-and-trading-summer-analyst-hong-kong-2027/287/97603330976",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -326,7 +530,7 @@
       "url": "https://jobs.citi.com/job/tampa/functions-internal-audit-summer-analyst-tampa-usa-2027/287/93639707152",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -338,43 +542,7 @@
       "url": "https://jobs.citi.com/job/irving/functions-internal-audit-summer-analyst-dallas-usa-2027/287/93639707136",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "902293797ec0044e",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Services - Summer Analyst, Singapore, 2027",
-      "url": "https://jobs.citi.com/job/singapore/services-summer-analyst-singapore-2027/287/98171092432",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "7590f329e48d7fd4",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Services - Summer Analyst, Hong Kong, 2027",
-      "url": "https://jobs.citi.com/job/hong-kong/services-summer-analyst-hong-kong-2027/287/98171092416",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "02c3fd01a71e3c5a",
-      "firm": "Citi",
-      "firm_id": "citi",
-      "category": "bulge_bracket",
-      "title": "Services - Summer Analyst, China, 2027",
-      "url": "https://jobs.citi.com/job/shanghai/services-summer-analyst-china-2027/287/98171092400",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -386,7 +554,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Strategic-Partners-Real-Estate-Secondaries-Summer-Analyst--London-_43623",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -398,7 +566,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Strategic-Partners-Private-Equity-Secondaries-Summer-Analyst--London-_43192",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -410,7 +578,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Tokyo/XMLNAME-2027-Blackstone-Real-Estate-Summer-Analyst--Tokyo_40628",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -422,7 +590,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Tokyo/XMLNAME-2027-Blackstone-Credit---Insurance-Summer-Analyst--Tokyo_40716",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -434,19 +602,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Tokyo/XMLNAME-2027-Blackstone-Private-Wealth-Summer-Analyst--Tokyo_40708",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "b5fbf20fbfcb7605",
-      "firm": "Blackstone",
-      "firm_id": "blackstone",
-      "category": "pe",
-      "title": "2027 Blackstone Credit and Insurance, Infrastructure and Asset Based Credit Summer Analyst (London)",
-      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2027-Blackstone-Credit-and-Insurance--Infrastructure-and-Asset-Based-Credit-Summer-Analyst--London-_43862",
-      "status": "not_yet_eligible",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -458,7 +614,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2027-Blackstone-Credit-and-Insurance--Private-Credit-Strategies-Summer-Analyst--London-_43864",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -470,7 +626,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2027-Blackstone-Credit-and-Insurance--Quant-and-Portfolio-Analytics-Summer-Analyst---London-_43819",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -482,7 +638,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Real-Estate-Debt-Strategies-Summer-Analyst---Private-Investments---Capital-Markets--London-_43199",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -494,7 +650,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Real-Estate-Institutional-Client-Solutions-Summer-Analyst--London-_43188",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -506,7 +662,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Real-Estate-Partners-Summer-Analyst---Acquisitions--Asset-Management--Capital-Markets-and-Core---London-_43155",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -518,7 +674,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Infrastructure-Partners-Summer-Analyst---Private-Equity-Infrastructure-Investment---Private-Equity-Infrastructure-Asset-Management--London-_43613",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -530,7 +686,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2027-Blackstone-Private-Wealth-Summer-Analyst--London-_43183",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -542,7 +698,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Private-Equity-Summer-Analyst--London-_43186",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -554,7 +710,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2027-Blackstone-Tactical-Opportunities-Summer-Analyst--London-_43179",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -566,45 +722,57 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Singapore/XMLNAME-2027-Blackstone-Real-Estate-Summer-Analyst--Singapore_40960",
       "status": "not_yet_eligible",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     }
   ],
   "needs_review": [
     {
-      "id": "03b2120be6314b38",
+      "id": "f5b1b0997c87fbad",
       "firm": "Goldman Sachs",
       "firm_id": "goldman_sachs",
       "category": "bulge_bracket",
-      "title": "2026 | EMEA | Paris | Investment Banking, Capital Solutions Group | Seasonal/Off Cycle Internship Paris \u00b7 France \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/150652",
+      "title": "2027 | EMEA | Frankfurt | Internal Audit | Off Cycle Internship Frankfurt \u00b7 Germany \u00b7 Seasonal",
+      "url": "https://higher.gs.com/roles/181883",
       "status": "unknown",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
-      "id": "7bce5cf6cd550cf4",
+      "id": "aaff04f30e3db67a",
       "firm": "Goldman Sachs",
       "firm_id": "goldman_sachs",
       "category": "bulge_bracket",
-      "title": "2026 | EMEA | Paris | FICC & Equities (Sales & Trading) | Seasonal/Off Cycle Internship, July - December Paris \u00b7 France \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/150792",
+      "title": "2027 | EMEA | Warsaw | Internal Audit | Seasonal/Off Cycle Internship Warsaw \u00b7 Poland \u00b7 Seasonal",
+      "url": "https://higher.gs.com/roles/170138",
       "status": "unknown",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
-      "id": "a6bcdc87c1c3a96c",
-      "firm": "Citi",
-      "firm_id": "citi",
+      "id": "ee28fa0011aeece2",
+      "firm": "Goldman Sachs",
+      "firm_id": "goldman_sachs",
       "category": "bulge_bracket",
-      "title": "Markets - Summer Internship Program, Boston Career Forum in 2026, Tokyo - Japan, 2027",
-      "url": "https://jobs.citi.com/job/chiyoda/markets-summer-internship-program-boston-career-forum-in-2026-tokyo-japan-2027/287/97466251904",
+      "title": "2027 | EMEA | London | Global Investment Research | Macro Research, Portfolio Strategy | Seasonal/Off-cycle Internship London \u00b7 United Kingdom \u00b7 Seasonal",
+      "url": "https://higher.gs.com/roles/170877",
       "status": "unknown",
-      "first_seen": "2026-08-07T17:43:17+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
+      "currently_listed": true
+    },
+    {
+      "id": "6088139558675766",
+      "firm": "The Carlyle Group",
+      "firm_id": "carlyle",
+      "category": "pe",
+      "title": "Private Credit Intern",
+      "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/London-United-Kingdom/Intern_R-00234",
+      "status": "unknown",
+      "first_seen": "2026-08-16T05:01:10+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -616,103 +784,7 @@
       "url": "https://higher.gs.com/campus",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "0eb3d18a171ec9da",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2026 | Americas | Sao Paulo | FICC and Equities | Seasonal/Off Cycle Internship Sao Paulo \u00b7 Brazil \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/151744",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "f24b674e5d52b769",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2027 | EMEA | Frankfurt | Investment Banking, Classic | Seasonal/Off Cycle Internship, Jan - March Frankfurt \u00b7 Germany \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/170846",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "5803f9d2bd505707",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2027 | EMEA | Frankfurt | Investment Banking, Classic | Seasonal/Off Cycle Internship, April - June Frankfurt \u00b7 Germany \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/170848",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "6bff52420291194d",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2026 | EMEA | London | FICC & Equities (Sales & Trading) | Seasonal/Off Cycle Internship London \u00b7 United Kingdom \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/150725",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "6c0e3be1e614de4b",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2026 | EMEA | Frankfurt | Asset Management, Client Solutions Group / Sales | Seasonal/Off Cycle Internship Frankfurt \u00b7 Germany \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/150761",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "4a8090a3cf011bfe",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2027 | APEJ | Hong Kong | Global Investment Research, Macro Research, Economics | Seasonal / Off-cycle Internship Hong Kong \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/180086",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "87036ebcdd30b76e",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2027 | APEJ | Hong Kong | Global Investment Research, Consumer | Seasonal / Off-cycle Internship Hong Kong \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/179947",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "d17a83e039ae126e",
-      "firm": "Goldman Sachs",
-      "firm_id": "goldman_sachs",
-      "category": "bulge_bracket",
-      "title": "2026 | EMEA | Dubai | Wealth Management | Seasonal/Off-cycle Internship United Arab Emirates \u00b7 Seasonal",
-      "url": "https://higher.gs.com/roles/150859",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -724,7 +796,7 @@
       "url": "https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -736,7 +808,7 @@
       "url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/fbm-apprenticeship",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -748,7 +820,7 @@
       "url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/uk-work-experience",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -760,7 +832,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -772,7 +844,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/campus-experience.html",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -784,7 +856,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/programs.html",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -796,7 +868,7 @@
       "url": "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/xf-6f0048376f93/candidate/jobboard/vacancy/2/adv/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -808,7 +880,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/job-search.html?ref=search&search=getAllJobs&start=0&rows=10",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -820,7 +892,7 @@
       "url": "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/user-36/xf-1c8d608fd721/wid-1/candidate/login",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -832,7 +904,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/campus-experience",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -844,7 +916,7 @@
       "url": "https://careers.bankofamerica.com/en-us/students/programs",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -856,7 +928,7 @@
       "url": "https://www.morganstanley.com/ideas",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -868,7 +940,7 @@
       "url": "https://www.morganstanley.com/people-opportunities/students-graduates",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -880,7 +952,7 @@
       "url": "https://morganstanley.eightfold.ai/careers/job/549798120576",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -892,7 +964,7 @@
       "url": "https://jobs.citi.com/early-career-programs",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -904,7 +976,7 @@
       "url": "https://citi.eightfold.ai/careers/join?jtn_form_id=jtn-early-career",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -916,7 +988,7 @@
       "url": "https://www.evercore.com/careers/students-graduates/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -928,7 +1000,7 @@
       "url": "https://evercore.tal.net/vx/lang-en-GB/mobile-0/channel-1/appcentre-ext/brand-4/candidate/jobboard/vacancy/1/adv/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -940,7 +1012,7 @@
       "url": "https://www.moelis.com/careers/explore-opportunities/?tab=students-and-graduates",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -952,7 +1024,7 @@
       "url": "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/user-7/xf-69860b0d6b25/wid-2/candidate",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -964,7 +1036,7 @@
       "url": "https://www.lazard.com/research-insights/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -976,7 +1048,7 @@
       "url": "https://www.lazard.com/careers/students/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -988,7 +1060,7 @@
       "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1000,7 +1072,7 @@
       "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/?taxonomy_1155=725",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1012,7 +1084,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Singapore/XMLNAME-2027-Real-Estate-Finance--Off-Cycle-Intern--January-to-June---Singapore_44173",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1024,7 +1096,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Hong-Kong/XMLNAME-2027-Transaction-Finance-Off-cycle-Intern--January-to-June--Hong-Kong_44171",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1036,7 +1108,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2026-Blackstone-Credit---Insurance--Insurance-Strategy-and-Solutions-H2-Off-Cycle-Intern--London-_43842",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1048,7 +1120,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Berkeley-Square-House-London/XMLNAME-2026-Blackstone-Credit-and-Insurance--Infrastructure-and-Asset-Based-Credit-H2-Off-Cycle-Intern--London-_43860",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1060,7 +1132,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/Frankfurt-Omniturm/XMLNAME-2026-Blackstone-Private-Equity-H2-Off-Cycle-Internship-Frankfurt_41376-1",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1072,19 +1144,7 @@
       "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers/job/London/XMLNAME-2026-Blackstone-Tactical-Opportunities-H2-Off-Cycle-Internship_40609",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
-      "currently_listed": true
-    },
-    {
-      "id": "b4b928f3c73d58e3",
-      "firm": "KKR",
-      "firm_id": "kkr",
-      "category": "pe",
-      "title": "2027 Global Client Solutions - Sales Support FIBI (France, Italy, Benelux, Iberia) Internship",
-      "url": "https://www.kkr.com/careers/student-careers/student-career-opportunities/post?gh_jid=6030409004",
-      "status": "unknown",
-      "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1096,7 +1156,7 @@
       "url": "https://www.kkr.com/careers/student-careers/student-career-opportunities/post?gh_jid=6109396004",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1108,7 +1168,7 @@
       "url": "https://www.kkr.com/careers/student-careers/student-career-opportunities/post?gh_jid=4777518004",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1120,7 +1180,7 @@
       "url": "https://www.kkr.com/careers/student-careers/student-career-opportunities/post?gh_jid=4033983004",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1132,7 +1192,7 @@
       "url": "https://www.kkr.com/careers/student-careers/student-career-opportunities/post?gh_jid=6133945004",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1144,7 +1204,7 @@
       "url": "https://www.morganstanley.com/ideas",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     },
     {
@@ -1156,7 +1216,7 @@
       "url": "https://www.morganstanley.com/people-opportunities/students-graduates",
       "status": "unknown",
       "first_seen": "2026-08-06T19:40:29+00:00",
-      "last_seen": "2026-08-07T17:43:17+00:00",
+      "last_seen": "2026-08-16T05:01:10+00:00",
       "currently_listed": true
     }
   ],
@@ -1164,87 +1224,87 @@
     {
       "firm": "Goldman Sachs",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "JPMorgan Chase",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Bank of America",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Morgan Stanley (Investment Banking)",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Citi",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Evercore",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Moelis & Company",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "PJT Partners",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Lazard",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Centerview Partners",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Rothschild & Co",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Guggenheim Securities",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Blackstone",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "KKR",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Apollo Global Management",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "The Carlyle Group",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     },
     {
       "firm": "Morgan Stanley Wealth Management",
       "status": "ok",
-      "checked_at": "2026-08-07T17:43:17+00:00"
+      "checked_at": "2026-08-16T05:01:10+00:00"
     }
   ]
 }
