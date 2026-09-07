@@ -3,7 +3,9 @@
 Checks bulge bracket, elite boutique/middle market, PE, and wealth management
 career pages hourly for new sophomore- and junior-eligible internship
 postings, emails an alert when something new shows up, and publishes a
-dashboard via GitHub Pages.
+dashboard via GitHub Pages. Also sends a twice-daily "markets brief" email —
+an interview-prep-focused rundown of what's moving in markets and why, built
+for answering the classic "walk me through the markets" interview question.
 
 ## How it works
 
@@ -21,15 +23,38 @@ dashboard via GitHub Pages.
   know these firms run but that aren't posted yet — shown in the "Opens
   soon" section until the real posting is detected.
 
+### Markets brief
+
+- `scripts/market_brief.py` runs on a schedule (GitHub Actions,
+  `.github/workflows/market_brief.yml`), weekdays only, ~7am ET (before the
+  open) and ~5pm ET (after the close). Run manually any time from the
+  Actions tab ("Markets brief" → Run workflow) to test.
+- `scripts/market_data.py` pulls index/yield/commodity levels (S&P 500, Dow,
+  Nasdaq, VIX, 10-year Treasury yield, crude, gold, dollar index) from
+  Yahoo Finance's public chart endpoint — free, no API key.
+- `scripts/market_news.py` pulls headlines from a handful of public RSS
+  feeds (CNBC, MarketWatch, WSJ Markets, Yahoo Finance) — also free, no key.
+- `scripts/brief_writer.py` sends that data to Claude (Anthropic API), which
+  writes the actual brief: an interview-ready talking point, an interpreted
+  (not just restated) market snapshot, a handful of stories tied to sectors
+  and deal activity relevant to the firms in `config/firms.json`, and a
+  "jargon of the day" explainer. This LLM step is what makes it a genuine
+  explainer instead of a reformatted headline list — it costs roughly a
+  couple cents per email (a few cents a day across both runs).
+- Add/edit tracked tickers or RSS feeds in `config/market_brief.json`.
+
 ## One-time setup
 
 1. **Push this repo to GitHub** (public, so Actions minutes and Pages are free).
 2. **Add repo secrets** (Settings → Secrets and variables → Actions):
    - `RESEND_API_KEY` — from resend.com
-   - `ALERT_EMAIL` — the address to send alerts to
+   - `ALERT_EMAIL` — the address to send alerts to (used for both internship
+     alerts and the markets brief)
    - `ALERT_FROM_EMAIL` — optional, defaults to `onboarding@resend.dev`
+   - `ANTHROPIC_API_KEY` — from console.anthropic.com, only needed for the
+     markets brief
 3. **Enable GitHub Pages**: Settings → Pages → Source = "GitHub Actions".
-4. Push a commit (or run the workflow manually from the Actions tab) to
+4. Push a commit (or run either workflow manually from the Actions tab) to
    trigger the first run.
 
 ## Running locally

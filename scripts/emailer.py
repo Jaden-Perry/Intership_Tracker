@@ -56,3 +56,29 @@ def send_alerts(new_postings: list[dict]) -> None:
     if not resp.ok:
         print(f"Resend API error {resp.status_code}: {resp.text}")
     resp.raise_for_status()
+
+
+def send_market_brief(html_body: str, subject: str) -> None:
+    """Send a pre-rendered HTML email (e.g. the daily markets brief).
+
+    Expects env vars RESEND_API_KEY and ALERT_EMAIL. Raises on API failure so
+    the workflow run shows as failed rather than silently swallowing it.
+    """
+    api_key = os.environ["RESEND_API_KEY"]
+    to_email = os.environ["ALERT_EMAIL"]
+    from_email = os.environ.get("ALERT_FROM_EMAIL") or "onboarding@resend.dev"
+
+    resp = requests.post(
+        RESEND_API_URL,
+        headers={"Authorization": f"Bearer {api_key}"},
+        json={
+            "from": from_email,
+            "to": [to_email],
+            "subject": subject,
+            "html": html_body,
+        },
+        timeout=30,
+    )
+    if not resp.ok:
+        print(f"Resend API error {resp.status_code}: {resp.text}")
+    resp.raise_for_status()

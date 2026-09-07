@@ -1,0 +1,53 @@
+name: Markets brief
+
+on:
+  schedule:
+    - cron: "0 11 * * 1-5"   # ~7am ET (weekdays), before market open
+    - cron: "0 21 * * 1-5"   # ~5pm ET (weekdays), after market close
+  workflow_dispatch:
+    inputs:
+      run_type:
+        description: "Brief type"
+        type: choice
+        options: [morning, evening]
+        default: morning
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: deps-brief-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install requests feedparser
+
+      - name: Determine run type
+        id: run_type
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 21 * * 1-5" ]; then
+            echo "value=evening" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 11 * * 1-5" ]; then
+            echo "value=morning" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${{ inputs.run_type || 'morning' }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send brief
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          ALERT_FROM_EMAIL: ${{ secrets.ALERT_FROM_EMAIL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/market_brief.py ${{ steps.run_type.outputs.value }}
