@@ -11,6 +11,7 @@ from pathlib import Path
 
 from brief_writer import generate_brief_html
 from emailer import send_market_brief
+from market_calendar import is_us_market_holiday
 from market_data import fetch_index_data
 from market_news import fetch_headlines
 
@@ -50,6 +51,11 @@ def main() -> None:
     run_type = sys.argv[1] if len(sys.argv) > 1 else "morning"
     if run_type not in ("morning", "evening"):
         run_type = "morning"
+
+    today = datetime.date.today()
+    if is_us_market_holiday(today):
+        print(f"market_brief: {today} is a US market holiday, skipping")
+        return
 
     config = json.loads(CONFIG_PATH.read_text())
     market_data = fetch_index_data(config["tickers"])
