@@ -6,6 +6,18 @@ ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-5"
 
 
+def _strip_code_fence(text: str) -> str:
+    """Strip a leading/trailing ``` or ```html fence, if the model added one
+    despite being told not to.
+    """
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1] if "\n" in text else ""
+        if text.rstrip().endswith("```"):
+            text = text.rstrip()[: -3]
+    return text.strip()
+
+
 def _format_market_line(m: dict) -> str:
     line = f"- {m['label']}: {m['price']:.2f}"
     if m["pct_change"] is not None:
@@ -105,5 +117,5 @@ HEADLINES:
     data = resp.json()
     for block in data["content"]:
         if block.get("type") == "text":
-            return block["text"].strip()
+            return _strip_code_fence(block["text"])
     raise RuntimeError(f"No text content block in Anthropic response: {data}")
