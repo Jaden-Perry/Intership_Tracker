@@ -93,7 +93,7 @@ HEADLINES:
         },
         json={
             "model": MODEL,
-            "max_tokens": 2000,
+            "max_tokens": 8000,
             "system": system_prompt,
             "messages": [{"role": "user", "content": user_prompt}],
         },
