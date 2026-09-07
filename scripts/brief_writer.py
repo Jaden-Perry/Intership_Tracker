@@ -102,4 +102,8 @@ HEADLINES:
     if not resp.ok:
         print(f"Anthropic API error {resp.status_code}: {resp.text}")
     resp.raise_for_status()
-    return resp.json()["content"][0]["text"].strip()
+    data = resp.json()
+    for block in data["content"]:
+        if block.get("type") == "text":
+            return block["text"].strip()
+    raise RuntimeError(f"No text content block in Anthropic response: {data}")
