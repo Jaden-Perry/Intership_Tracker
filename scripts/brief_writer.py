@@ -97,7 +97,7 @@ HEADLINES:
             "system": system_prompt,
             "messages": [{"role": "user", "content": user_prompt}],
         },
-        timeout=60,
+        timeout=180,
     )
     if not resp.ok:
         print(f"Anthropic API error {resp.status_code}: {resp.text}")
