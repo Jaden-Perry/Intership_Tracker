@@ -1,7 +1,8 @@
 # Internship Tracker
 
-Checks bulge bracket, elite boutique/middle market, PE, and wealth management
-career pages hourly for new sophomore- and junior-eligible internship
+Checks bulge bracket, elite boutique/middle market, PE, asset management, and
+wealth management career pages hourly (47 firms) for new sophomore- and
+junior-eligible internship
 postings, emails an alert when something new shows up, and publishes a
 dashboard via GitHub Pages. Also sends a twice-daily "markets brief" email —
 an interview-prep-focused rundown of what's moving in markets and why, built
