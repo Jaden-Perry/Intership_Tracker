@@ -142,5 +142,289 @@
     "category": "wm",
     "confidence": "medium",
     "fetch": { "type": "html", "url": "https://morganstanley.eightfold.ai/careers?query=Wealth%20Management%20Summer%20Analyst%20Sophomore" }
+  },
+  {
+    "id": "houlihan_lokey",
+    "name": "Houlihan Lokey",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://hl.wd1.myworkdayjobs.com/Campus",
+      "api_url": "https://hl.wd1.myworkdayjobs.com/wday/cxs/hl/Campus/jobs",
+      "job_base": "https://hl.wd1.myworkdayjobs.com/Campus"
+    }
+  },
+  {
+    "id": "perella_weinberg",
+    "name": "Perella Weinberg Partners",
+    "category": "eb_mm",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://pwpartners.com/careers/intern-graduate-recruitment/" }
+  },
+  {
+    "id": "william_blair",
+    "name": "William Blair",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "williamblair" }
+  },
+  {
+    "id": "robert_w_baird",
+    "name": "Robert W. Baird",
+    "category": "eb_mm",
+    "confidence": "very_low",
+    "fetch": { "type": "html", "url": "https://www.bairdcareers.com/internships/global-investment-banking-intern-program-us/" }
+  },
+  {
+    "id": "harris_williams",
+    "name": "Harris Williams",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://pnc.wd5.myworkdayjobs.com/HarrisWilliams",
+      "api_url": "https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/HarrisWilliams/jobs",
+      "job_base": "https://pnc.wd5.myworkdayjobs.com/HarrisWilliams"
+    }
+  },
+  {
+    "id": "jefferies",
+    "name": "Jefferies",
+    "category": "eb_mm",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://www.jefferies.com/careers/students-and-graduates/" }
+  },
+  {
+    "id": "piper_sandler",
+    "name": "Piper Sandler",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://pipersandler.wd501.myworkdayjobs.com/Piper_Sandler_Careers",
+      "api_url": "https://pipersandler.wd501.myworkdayjobs.com/wday/cxs/pipersandler/Piper_Sandler_Careers/jobs",
+      "job_base": "https://pipersandler.wd501.myworkdayjobs.com/Piper_Sandler_Careers"
+    }
+  },
+  {
+    "id": "greenhill",
+    "name": "Greenhill & Co",
+    "category": "eb_mm",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas",
+      "api_url": "https://mizuho.wd1.myworkdayjobs.com/wday/cxs/mizuho/mizuhoamericas/jobs",
+      "job_base": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas",
+      "search_text": "Greenhill",
+      "title_must_contain": "Greenhill"
+    }
+  },
+  {
+    "id": "qatalyst",
+    "name": "Qatalyst Partners",
+    "category": "eb_mm",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://qatalyst.com/careers" }
+  },
+  {
+    "id": "solomon_partners",
+    "name": "Solomon Partners",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "solomonpartnersstudentsgraduates" }
+  },
+  {
+    "id": "tpg",
+    "name": "TPG",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "tpgcareers" }
+  },
+  {
+    "id": "warburg_pincus",
+    "name": "Warburg Pincus",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "warburgpincusllc" }
+  },
+  {
+    "id": "silver_lake",
+    "name": "Silver Lake",
+    "category": "pe",
+    "confidence": "very_low",
+    "fetch": { "type": "html", "url": "https://www.silverlake.com/careers/" }
+  },
+  {
+    "id": "vista_equity_partners",
+    "name": "Vista Equity Partners",
+    "category": "pe",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://www.vistaequitypartners.com/careers/open-positions/" }
+  },
+  {
+    "id": "bain_capital",
+    "name": "Bain Capital",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://baincapital.wd1.myworkdayjobs.com/External_Public",
+      "api_url": "https://baincapital.wd1.myworkdayjobs.com/wday/cxs/baincapital/External_Public/jobs",
+      "job_base": "https://baincapital.wd1.myworkdayjobs.com/External_Public"
+    }
+  },
+  {
+    "id": "thoma_bravo",
+    "name": "Thoma Bravo",
+    "category": "pe",
+    "confidence": "very_low",
+    "fetch": { "type": "html", "url": "https://www.thomabravo.com/careers" }
+  },
+  {
+    "id": "general_atlantic",
+    "name": "General Atlantic",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": { "type": "greenhouse_api", "board_token": "gacampus" }
+  },
+  {
+    "id": "advent_international",
+    "name": "Advent International",
+    "category": "pe",
+    "confidence": "low",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://adventinternational.wd12.myworkdayjobs.com/AdventAgency",
+      "api_url": "https://adventinternational.wd12.myworkdayjobs.com/wday/cxs/adventinternational/AdventAgency/jobs",
+      "job_base": "https://adventinternational.wd12.myworkdayjobs.com/AdventAgency"
+    }
+  },
+  {
+    "id": "hellman_friedman",
+    "name": "Hellman & Friedman",
+    "category": "pe",
+    "confidence": "very_low",
+    "fetch": { "type": "html", "url": "https://www.hf.com/careers" }
+  },
+  {
+    "id": "ares_management",
+    "name": "Ares Management",
+    "category": "pe",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://aresmgmt.wd1.myworkdayjobs.com/External",
+      "api_url": "https://aresmgmt.wd1.myworkdayjobs.com/wday/cxs/aresmgmt/External/jobs",
+      "job_base": "https://aresmgmt.wd1.myworkdayjobs.com/External"
+    }
+  },
+  {
+    "id": "blackrock",
+    "name": "BlackRock",
+    "category": "am",
+    "confidence": "medium",
+    "fetch": { "type": "html", "url": "https://careers.blackrock.com/students-and-graduates-americas" }
+  },
+  {
+    "id": "fidelity",
+    "name": "Fidelity Investments",
+    "category": "am",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers",
+      "api_url": "https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs",
+      "job_base": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers"
+    }
+  },
+  {
+    "id": "pimco",
+    "name": "PIMCO",
+    "category": "am",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://pimco.wd1.myworkdayjobs.com/pimco-careers",
+      "api_url": "https://pimco.wd1.myworkdayjobs.com/wday/cxs/pimco/pimco-careers/jobs",
+      "job_base": "https://pimco.wd1.myworkdayjobs.com/pimco-careers"
+    }
+  },
+  {
+    "id": "wellington_management",
+    "name": "Wellington Management",
+    "category": "am",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://wellington.wd5.myworkdayjobs.com/Campus",
+      "api_url": "https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/Campus/jobs",
+      "job_base": "https://wellington.wd5.myworkdayjobs.com/Campus"
+    }
+  },
+  {
+    "id": "t_rowe_price",
+    "name": "T. Rowe Price",
+    "category": "am",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://troweprice.gr8people.com/jobs" }
+  },
+  {
+    "id": "capital_group",
+    "name": "Capital Group",
+    "category": "am",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers",
+      "api_url": "https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs",
+      "job_base": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers"
+    }
+  },
+  {
+    "id": "alliancebernstein",
+    "name": "AllianceBernstein",
+    "category": "am",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://abglobal.wd1.myworkdayjobs.com/abcampuscareers",
+      "api_url": "https://abglobal.wd1.myworkdayjobs.com/wday/cxs/abglobal/abcampuscareers/jobs",
+      "job_base": "https://abglobal.wd1.myworkdayjobs.com/abcampuscareers"
+    }
+  },
+  {
+    "id": "neuberger_berman",
+    "name": "Neuberger Berman",
+    "category": "am",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://nb.wd1.myworkdayjobs.com/NBCareers",
+      "api_url": "https://nb.wd1.myworkdayjobs.com/wday/cxs/nb/NBCareers/jobs",
+      "job_base": "https://nb.wd1.myworkdayjobs.com/NBCareers"
+    }
+  },
+  {
+    "id": "pgim",
+    "name": "PGIM",
+    "category": "am",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://pru.wd5.myworkdayjobs.com/Careers",
+      "api_url": "https://pru.wd5.myworkdayjobs.com/wday/cxs/pru/Careers/jobs",
+      "job_base": "https://pru.wd5.myworkdayjobs.com/Careers",
+      "search_text": "PGIM",
+      "title_must_contain": "PGIM"
+    }
+  },
+  {
+    "id": "janus_henderson",
+    "name": "Janus Henderson",
+    "category": "am",
+    "confidence": "low",
+    "fetch": { "type": "html", "url": "https://www.janushenderson.com/corporate/careers/early-careers/" }
   }
 ]

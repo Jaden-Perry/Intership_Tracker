@@ -16,26 +16,41 @@ class cohorts. Only the program *name* signals sophomore eligibility.
 """
 import re
 
+# Firm-specific named sophomore programs. Kept in one place and folded into
+# both SOPHOMORE_PATTERNS and CANDIDATE_KEYWORDS below, since a program name
+# that isn't in CANDIDATE_KEYWORDS would get filtered out by is_candidate()
+# before classify() ever sees it.
+NAMED_SOPHOMORE_PROGRAMS = [
+    r"\bpossibilities\s+series\b",
+    r"\bxceleration\b",
+    r"\bpathways?\b",
+    r"\bfocus program\b",
+    r"\blaunchpad\b",
+    r"\bleadership development program\b",
+    r"\bldp\b",
+    r"\bwinning women\b",
+    r"\blaunching leaders\b",
+    r"\bcareer exploration\b",       # Piper Sandler CEP
+    r"\bcatalyst program\b",         # Warburg Pincus
+    r"\bdistinguished scholars\b",   # Silver Lake
+    r"\baccelerate program\b",       # Advent International
+    r"\bpimco prep\b",               # PIMCO
+    r"\bstrategic resources\b",      # William Blair
+]
+
 SOPHOMORE_PATTERNS = [
     r"\bsophomore\b",
     r"\bfreshman\b",
     r"\bfirst[- ]?year\b",
     r"\bunderclassm[ae]n\b",
-    r"\bdiscovery\s+(program|day|week)\b",
+    r"\bdiscovery\b.{0,20}\b(program|internship|day|week)\b",
     r"\binsight\s+(day|days|week|weeks|forum|program|summit)\b",
     r"\bearly[- ]?insight[s]?\b",
     r"\bexplore\s+opportunities\b",
-    r"\bpossibilities\s+series\b",
     r"\bwomen'?s?\s+(program|network|summit)\b",
     r"\bdiversity\s+(program|summit|initiative)\b",
     r"\b(spring|winter)\s+(week|program|insight)\b",
-    r"\bxceleration\b",
-    r"\bpathways?\b",
-    r"\bfocus program\b",
-    r"\blaunchpad\b",
-    r"\bleadership development\b",
-    r"\bwinning women\b",
-    r"\blaunching leaders\b",
+    *NAMED_SOPHOMORE_PROGRAMS,
 ]
 
 JUNIOR_PATTERNS = [
@@ -59,16 +74,12 @@ CANDIDATE_KEYWORDS = [
     r"\bdiscovery\b",
     r"\binsight[s]?\b",
     r"\bpossibilities\b",
-    r"\bfocus program\b",
-    r"\blaunchpad\b",
-    r"\bleadership development\b",
-    r"\bwinning women\b",
-    r"\blaunching leaders\b",
-    r"\bxceleration\b",
     r"\bearly[- ]?career\b",
     r"\bstudent[s]?\b",
     r"\bcampus\b",
     r"\bundergrad(uate)?\b",
+    r"\bexternship\b",
+    *NAMED_SOPHOMORE_PROGRAMS,
 ]
 
 _sophomore_re = re.compile("|".join(SOPHOMORE_PATTERNS), re.IGNORECASE)

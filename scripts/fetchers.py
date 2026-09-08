@@ -118,7 +118,19 @@ def _derive_workday_api(careers_url: str):
     return api_url, job_base
 
 
-def fetch_workday(careers_url: str, search_text: str = "", api_url: str = None, job_base: str = None) -> FetchResult:
+def fetch_workday(
+    careers_url: str,
+    search_text: str = "",
+    api_url: str = None,
+    job_base: str = None,
+    title_must_contain: str = None,
+) -> FetchResult:
+    """title_must_contain is a client-side safety net for shared-tenant Workday
+    boards (e.g. Greenhill postings living inside Mizuho's feed, PGIM inside
+    Prudential's). Workday's own searchText is fuzzy/OR-matched, not a strict
+    filter — it lets unrelated postings from the shared parent through — so
+    for those cases we additionally require the firm's own name literally
+    appear in the title before treating it as that firm's posting."""
     if not api_url or not job_base:
         derived_api, derived_base = _derive_workday_api(careers_url)
         api_url = api_url or derived_api
@@ -127,20 +139,35 @@ def fetch_workday(careers_url: str, search_text: str = "", api_url: str = None, 
     candidates = []
     offset = 0
     limit = 20
-    total = None
-    while total is None or offset < min(total, 200):  # safety cap
+    total = None  # locked from the first page only — Workday's "total" has been
+    # observed to flake to 0 on a later page in the same pagination sequence,
+    # which would otherwise silently truncate the results early.
+    while total is None or offset < min(total, 600):  # safety cap
         body = {"appliedFacets": {}, "limit": limit, "offset": offset, "searchText": search_text}
         resp = requests.post(api_url, headers={**HEADERS, "Content-Type": "application/json"}, json=body, timeout=TIMEOUT)
         resp.raise_for_status()
         data = resp.json()
-        total = data.get("total", 0)
         postings = data.get("jobPostings", [])
+
+        if total is None:
+            total = data.get("total", 0)
+        elif not postings:
+            # A later page came back empty even though we expected more —
+            # could be a real end-of-results or a transient blip. Retry once
+            # before trusting it and stopping.
+            resp = requests.post(api_url, headers={**HEADERS, "Content-Type": "application/json"}, json=body, timeout=TIMEOUT)
+            resp.raise_for_status()
+            data = resp.json()
+            postings = data.get("jobPostings", [])
+
         if not postings:
             break
         for p in postings:
             title = p.get("title", "")
             path = p.get("externalPath", "")
             if not title or not path:
+                continue
+            if title_must_contain and title_must_contain.lower() not in title.lower():
                 continue
             candidates.append({"title": title, "url": job_base + path})
         offset += limit
@@ -171,6 +198,7 @@ def fetch_for_firm(fetch_cfg: dict) -> FetchResult:
             search_text=fetch_cfg.get("search_text", ""),
             api_url=fetch_cfg.get("api_url"),
             job_base=fetch_cfg.get("job_base"),
+            title_must_contain=fetch_cfg.get("title_must_contain"),
         )
     if ftype == "greenhouse_api":
         return fetch_greenhouse(fetch_cfg["board_token"])

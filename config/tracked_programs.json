@@ -82,5 +82,68 @@
     "program_name": "Wealth Management Sophomore Summer Analyst Program (New York)",
     "program_keyword": "Sophomore",
     "note": "Could not confirm a 2027-labeled posting is live yet as of last check."
+  },
+  {
+    "firm_id": "piper_sandler",
+    "firm": "Piper Sandler",
+    "program_name": "Career Exploration Program (CEP)",
+    "program_keyword": "Career Exploration",
+    "note": "2-day February program, open to all majors, explicitly for sophomores; not yet posted as of last check."
+  },
+  {
+    "firm_id": "robert_w_baird",
+    "firm": "Robert W. Baird",
+    "program_name": "Women in Banking Sophomore Internship",
+    "program_keyword": "Women in Banking",
+    "note": "Diversity-focused sophomore pipeline; site is bot-blocked so scraping confidence is very_low — worth checking this one manually."
+  },
+  {
+    "firm_id": "warburg_pincus",
+    "firm": "Warburg Pincus",
+    "program_name": "Catalyst",
+    "program_keyword": "Catalyst",
+    "note": "1st/2nd-year students, NYC. Also runs a Girls Who Invest sophomore pathway external to Warburg's own job board."
+  },
+  {
+    "firm_id": "vista_equity_partners",
+    "firm": "Vista Equity Partners",
+    "program_name": "Rising Sophomore Program",
+    "program_keyword": "Rising Sophomore",
+    "note": "6-week paid program via KIPP/Posse Foundation partnerships; not yet posted as of last check."
+  },
+  {
+    "firm_id": "silver_lake",
+    "firm": "Silver Lake",
+    "program_name": "Distinguished Scholars Program",
+    "program_keyword": "Distinguished Scholars",
+    "note": "Women-focused, cohort-based, not job-board driven — recruiting here is relationship-driven, so this is worth checking manually rather than relying only on the scraper."
+  },
+  {
+    "firm_id": "advent_international",
+    "firm": "Advent International",
+    "program_name": "Accelerate",
+    "program_keyword": "Accelerate",
+    "note": "10-12 week sophomore program via Girls Who Invest/SEO London; does not lead to a return offer since Advent has no analyst pipeline."
+  },
+  {
+    "firm_id": "pimco",
+    "firm": "PIMCO",
+    "program_name": "PIMCO Prep",
+    "program_keyword": "PIMCO Prep",
+    "note": "Late spring/summer workshop for sophomores from underrepresented backgrounds, feeds the Summer Analyst pipeline."
+  },
+  {
+    "firm_id": "neuberger_berman",
+    "firm": "Neuberger Berman",
+    "program_name": "Private Markets - Discovery Internship Program for Sophomores",
+    "program_keyword": "Discovery",
+    "note": "Confirmed historically; re-verify each cycle since the live posting wasn't found at last check."
+  },
+  {
+    "firm_id": "william_blair",
+    "firm": "William Blair",
+    "program_name": "Strategic Resources",
+    "program_keyword": "Strategic Resources",
+    "note": "Paid summer internship explicitly open to rising sophomores, but in support functions, not front-office IB."
   }
 ]
