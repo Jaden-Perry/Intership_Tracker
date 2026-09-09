@@ -38,8 +38,8 @@
     "id": "evercore",
     "name": "Evercore",
     "category": "eb_mm",
-    "confidence": "low",
-    "fetch": { "type": "html", "url": "https://www.evercore.com/careers/students-graduates/students-graduates-u-s/" }
+    "confidence": "high",
+    "fetch": { "type": "html", "url": "https://evercore.tal.net/vx/lang-en-GB/mobile-0/channel-1/appcentre-ext/brand-6/candidate/jobboard/vacancy/2/adv/" }
   },
   {
     "id": "moelis",
