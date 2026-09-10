@@ -8,6 +8,7 @@ Env vars (only required if there's something new to email about):
 """
 import hashlib
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,8 +34,21 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+# Some ATS platforms embed a fresh random per-request/session token directly
+# in every URL on every page load (observed on Evercore's Oleeo/tal.net board:
+# a "/xf-<12 hex chars>/" segment that differs on every single fetch even for
+# the exact same posting). Left alone, that makes every scrape look "new"
+# forever, since the dedup id is derived from the URL. Strip known volatile
+# patterns before hashing so the id is stable across runs.
+_VOLATILE_URL_SEGMENT_RE = re.compile(r"/xf-[0-9a-f]{8,}(?=/)")
+
+
+def normalize_url_for_id(url: str) -> str:
+    return _VOLATILE_URL_SEGMENT_RE.sub("", url)
+
+
 def posting_id(firm_id: str, url: str) -> str:
-    return hashlib.sha1(f"{firm_id}|{url}".encode()).hexdigest()[:16]
+    return hashlib.sha1(f"{firm_id}|{normalize_url_for_id(url)}".encode()).hexdigest()[:16]
 
 
 def load_json(path: Path, default):
