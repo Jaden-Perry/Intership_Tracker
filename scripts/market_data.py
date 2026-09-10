@@ -28,9 +28,20 @@ def fetch_index_data(tickers: list[dict]) -> list[dict]:
                 timeout=15,
             )
             resp.raise_for_status()
-            meta = resp.json()["chart"]["result"][0]["meta"]
+            result = resp.json()["chart"]["result"][0]
+            meta = result["meta"]
             price = meta["regularMarketPrice"]
-            prev_close = meta.get("chartPreviousClose")
+
+            # meta["chartPreviousClose"] is NOT reliably "yesterday's close" -
+            # it shifts depending on the requested range (e.g. the close
+            # before a 5d window can be ~6 trading days back). Pull the
+            # actual previous session's close from the daily bars instead.
+            closes = [
+                c
+                for c in result["indicators"]["quote"][0]["close"]
+                if c is not None
+            ]
+            prev_close = closes[-2] if len(closes) >= 2 else None
             pct_change = (
                 (price - prev_close) / prev_close * 100 if prev_close else None
             )
