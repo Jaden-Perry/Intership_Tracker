@@ -28,6 +28,7 @@ def _format_market_line(m: dict) -> str:
 def generate_brief_html(
     run_type: str,
     date_str: str,
+    session_date_str: str,
     market_data: list[dict],
     headlines: list[dict],
     recruiting_context: str,
@@ -47,9 +48,10 @@ def generate_brief_html(
     ) or "(no headlines available this run)"
 
     session_label = (
-        "overnight/pre-market moves heading into today's session"
+        f"the {session_date_str} session (the most recently completed one, "
+        f"heading into today)"
         if run_type == "morning"
-        else "today's trading session"
+        else f"today's ({session_date_str}) trading session"
     )
 
     system_prompt = f"""You are writing a short daily markets brief for a college finance \
@@ -75,7 +77,10 @@ using ONLY inline styles (email clients strip <style> blocks). Cover, in this or
    must reflect ONLY the number's arithmetic sign — green for positive, red for negative — \
    never whether the move is "good" or "bad" news for markets. A rising VIX or rising yield \
    is still a positive percentage and must be green; do not recolor it red because rising \
-   volatility or rates reads as bad news.
+   volatility or rates reads as bad news. The market data below is as of the close of the \
+   {session_date_str} session — label the snapshot section with that date explicitly (e.g. \
+   "Snapshot — {session_date_str} close") so it's never mistaken for live, same-moment data. \
+   {"This is a morning run sent before today's open, so this is yesterday's/the last completed session's numbers, not anything that's happened yet today." if run_type == "morning" else "This is an evening run sent after today's close, so this is today's full-session move."}
 3. 3-5 stories from the headlines below that actually matter for {session_label}, grouped \
    by theme. For each: what happened, why it matters, and one line tying it to a specific \
    sector or to deal activity (M&A, IPOs, credit markets, buybacks, financing) relevant to \

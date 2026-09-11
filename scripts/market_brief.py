@@ -11,7 +11,7 @@ from pathlib import Path
 
 from brief_writer import generate_brief_html
 from emailer import send_market_brief
-from market_calendar import is_us_market_holiday
+from market_calendar import is_us_market_holiday, previous_trading_day
 from market_data import fetch_index_data
 from market_news import fetch_headlines
 
@@ -65,11 +65,16 @@ def main() -> None:
         print("market_brief: no market data or headlines fetched, skipping send")
         return
 
-    date_str = datetime.date.today().strftime("%A, %B %d, %Y")
+    date_str = today.strftime("%A, %B %d, %Y")
+    # Evening runs happen after today's close, so today's session is the
+    # latest one. Morning runs happen before the open, so the market data
+    # actually reflects the most recently completed (prior) session.
+    session_date = today if run_type == "evening" else previous_trading_day(today)
+    session_date_str = session_date.strftime("%A, %B %d, %Y")
     recruiting_context = build_recruiting_context()
 
     html = generate_brief_html(
-        run_type, date_str, market_data, headlines, recruiting_context
+        run_type, date_str, session_date_str, market_data, headlines, recruiting_context
     )
 
     label = "Morning" if run_type == "morning" else "Evening"

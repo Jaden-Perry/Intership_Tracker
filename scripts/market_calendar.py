@@ -62,3 +62,11 @@ def is_us_market_holiday(d: date) -> bool:
         _observed(date(year, 12, 25)),  # Christmas
     }
     return d in holidays
+
+
+def previous_trading_day(d: date) -> date:
+    """The most recent trading day strictly before d (skips weekends/holidays)."""
+    d -= timedelta(days=1)
+    while d.weekday() >= 5 or is_us_market_holiday(d):
+        d -= timedelta(days=1)
+    return d
