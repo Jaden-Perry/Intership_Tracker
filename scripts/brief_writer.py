@@ -71,7 +71,11 @@ using ONLY inline styles (email clients strip <style> blocks). Cover, in this or
 2. A compact market snapshot table or list using the data below, but interpreted — don't \
    just restate the numbers, say what the move means and, where the headlines support it, \
    why it happened. If the headlines don't explain a move, say the move looks technical or \
-   unclear rather than inventing a reason.
+   unclear rather than inventing a reason. If you color-code the % change figures, the color \
+   must reflect ONLY the number's arithmetic sign — green for positive, red for negative — \
+   never whether the move is "good" or "bad" news for markets. A rising VIX or rising yield \
+   is still a positive percentage and must be green; do not recolor it red because rising \
+   volatility or rates reads as bad news.
 3. 3-5 stories from the headlines below that actually matter for {session_label}, grouped \
    by theme. For each: what happened, why it matters, and one line tying it to a specific \
    sector or to deal activity (M&A, IPOs, credit markets, buybacks, financing) relevant to \
