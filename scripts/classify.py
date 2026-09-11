@@ -8,13 +8,24 @@ Buckets:
                         for either the current cycle or next year's
   - "unknown"           matched a tracked keyword but couldn't confidently classify
 
-Note: class-year labels ("2027", "2028") in a title are NOT used to decide
-sophomore vs. junior eligibility — firms label Summer Analyst postings by the
-summer the internship happens, not by program tier, so "2027 Summer Analyst"
-and "2028 Summer Analyst" are both junior-level seats, just for different
-class cohorts. Only the program *name* signals sophomore eligibility.
+Note on class-year labels: firms label "Summer Analyst" postings by the
+summer the internship happens ("20XX Summer Analyst" = internship in summer
+20XX, for whoever graduates in 20XX+1), not by how far out recruiting opens.
+For this user (rising sophomore as of fall 2026), that internship summer is
+2028 — so a "2028 Summer Analyst" posting is genuinely THEIR class, no
+matter which firm posts it or how early. Firms increasingly recruit that far
+ahead directly from the sophomore pool (confirmed on Evercore's actual 2028
+Summer Analyst posting: "graduation date between December 2028 and June
+2029" — exactly this user's class), without a separately-branded sophomore
+program. Any other year (2026, 2027, 2029+) belongs to a different class and
+stays not_yet_eligible even though the phrasing is identical.
 """
 import re
+
+# The Summer Analyst year that lines up with this user's own class. Update
+# this if the user's actual class year changes (e.g. it should become "2029"
+# once they become a rising junior).
+ELIGIBLE_SUMMER_ANALYST_YEAR = "2028"
 
 # Firm-specific named sophomore programs. Kept in one place and folded into
 # both SOPHOMORE_PATTERNS and CANDIDATE_KEYWORDS below, since a program name
@@ -92,6 +103,9 @@ def is_candidate(text: str) -> bool:
     return bool(_candidate_re.search(text or ""))
 
 
+_eligible_year_re = re.compile(rf"\b{ELIGIBLE_SUMMER_ANALYST_YEAR}\b")
+
+
 def classify(text: str) -> str:
     """Classify posting text into open_now / not_yet_eligible / unknown.
 
@@ -99,10 +113,15 @@ def classify(text: str) -> str:
     Analyst Program" would match both JUNIOR_PATTERNS ("summer analyst") and
     SOPHOMORE_PATTERNS ("sophomore") — sophomore wins since that's the actual
     eligibility signal for this user.
+
+    A "Summer Analyst"/"Summer Associate" posting for ELIGIBLE_SUMMER_ANALYST_YEAR
+    is also open_now, even with no sophomore branding — see module docstring.
     """
     text = text or ""
     if _sophomore_re.search(text):
         return "open_now"
     if _junior_re.search(text):
+        if _eligible_year_re.search(text):
+            return "open_now"
         return "not_yet_eligible"
     return "unknown"
