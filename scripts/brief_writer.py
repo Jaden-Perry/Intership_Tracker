@@ -44,7 +44,8 @@ def generate_brief_html(
         "(no market data available this run)"
     )
     headline_lines = "\n".join(
-        f"- [{h['source']}] {h['title']} — {h['summary']}" for h in headlines
+        f"- ({h['published']}) [{h['source']}] {h['title']} — {h['summary']}"
+        for h in headlines
     ) or "(no headlines available this run)"
 
     session_label = (
@@ -64,6 +65,16 @@ to make them sound sharp and specific when asked that question, not to recap hea
 a generic financial newsletter (Morning Brew, Market Brew, etc.). Assume the reader already \
 knows basic finance but wants jargon explained the moment it's used, and wants to know WHY \
 things moved, not just that they moved.
+
+The headlines below each carry a UTC publish timestamp and are sorted newest first. RSS \
+feeds often keep older speculative headlines (e.g. "Fed expected to hike," "markets pricing \
+in a possible hike") sitting alongside newer ones reporting the confirmed outcome (e.g. "Fed \
+hikes rates," "Fed's rate-hike lead"). When headlines conflict like this, the newer, \
+outcome-confirming headline is ground truth — never describe something as still pending, \
+possible, or "priced in" if a more recent headline reports it has actually happened. This \
+applies everywhere in the brief, not just the headline section: if a Fed decision, earnings \
+report, or other event has already occurred per the newest headlines, the talking point and \
+market-snapshot interpretation must treat it as fact, not speculation.
 
 Write clean HTML for an email — a self-contained fragment, no <html>/<head>/<body> tags — \
 using ONLY inline styles (email clients strip <style> blocks). Cover, in this order:

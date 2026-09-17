@@ -1,4 +1,7 @@
 """Fetch and lightly dedupe finance headlines from public RSS feeds."""
+import calendar
+from datetime import datetime, timezone
+
 import feedparser
 
 USER_AGENT = (
@@ -7,12 +10,26 @@ USER_AGENT = (
 )
 
 
+def _published_str(entry) -> str:
+    """Human-readable publish time, so the model can tell a stale
+    "expected to happen" headline apart from a newer confirmed-outcome one.
+    """
+    parsed = entry.get("published_parsed")
+    if not parsed:
+        return "unknown time"
+    dt = datetime.fromtimestamp(calendar.timegm(parsed), tz=timezone.utc)
+    return dt.strftime("%Y-%m-%d %H:%M UTC")
+
+
 def fetch_headlines(
     feeds: list[dict], per_feed: int = 8, total_limit: int = 30
 ) -> list[dict]:
     """Pull the newest few entries from each feed, deduping near-identical
     titles (the same story often runs on multiple wires) and logging (not
     raising on) any feed that fails so one dead feed doesn't sink the brief.
+
+    Results are sorted newest-first so recency is obvious in the order
+    alone, not just the timestamp text.
     """
     seen_titles = set()
     headlines = []
@@ -35,8 +52,16 @@ def fetch_headlines(
                         "title": title,
                         "summary": entry.get("summary", "")[:220],
                         "link": entry.get("link", ""),
+                        "published": _published_str(entry),
+                        "published_parsed": entry.get("published_parsed"),
                     }
                 )
         except Exception as e:
             print(f"market_news: failed to fetch {feed['name']}: {e}")
+
+    headlines.sort(
+        key=lambda h: h["published_parsed"] or (), reverse=True
+    )
+    for h in headlines:
+        del h["published_parsed"]
     return headlines[:total_limit]
