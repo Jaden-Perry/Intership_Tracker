@@ -93,6 +93,36 @@ CANDIDATE_KEYWORDS = [
     *NAMED_SOPHOMORE_PROGRAMS,
 ]
 
+# Region codes and city/country names that unambiguously mean a posting is
+# NOT in the US. Firms tag postings this way in the title itself (e.g.
+# "2027 | APEJ | Hong Kong | ..."). Deliberately does NOT include "Americas"
+# as a region code, since firms use that tag for a mix of US/Canada/Latin
+# America postings and it would wrongly exclude genuine US ones — city/country
+# names are the precise signal instead. A title with no location markers at
+# all is left alone (not assumed non-US).
+NON_US_LOCATION_MARKERS = [
+    r"\bemea\b", r"\bapac\b", r"\bapej\b", r"\bapj\b", r"\blatam\b",
+    r"\bhong kong\b", r"\bsingapore\b", r"\btokyo\b", r"\btaipei\b", r"\btaiwan\b",
+    r"\bseoul\b", r"\bkorea\b", r"\bshanghai\b", r"\bbeijing\b", r"\bmumbai\b",
+    r"\bbangalore\b", r"\bdelhi\b", r"\bsydney\b", r"\bmelbourne\b",
+    r"\blondon\b", r"\bunited kingdom\b", r"\bu\.?k\.?\b", r"\bfrankfurt\b",
+    r"\bmunich\b", r"\bberlin\b", r"\bgermany\b", r"\bparis\b", r"\bfrance\b",
+    r"\bzurich\b", r"\bgeneva\b", r"\bswitzerland\b", r"\bdublin\b", r"\bireland\b",
+    r"\bstockholm\b", r"\bsweden\b", r"\bwarsaw\b", r"\bpoland\b", r"\bbudapest\b",
+    r"\bhungary\b", r"\bamsterdam\b", r"\bnetherlands\b", r"\bmadrid\b", r"\bspain\b",
+    r"\bmilan\b", r"\bitaly\b", r"\bluxembourg\b", r"\bbrussels\b", r"\bbelgium\b",
+    r"\bdubai\b", r"\babu dhabi\b", r"\bu\.?a\.?e\.?\b", r"\briyadh\b",
+    r"\btoronto\b", r"\bmontreal\b", r"\bvancouver\b", r"\bcanada\b",
+    r"\bmexico city\b", r"\bs[aã]o paulo\b", r"\bbrazil\b", r"\bbogot[aá]\b",
+]
+_non_us_re = re.compile("|".join(NON_US_LOCATION_MARKERS), re.IGNORECASE)
+
+
+def is_non_us_location(text: str) -> bool:
+    """Whether a title contains a clear non-US location marker."""
+    return bool(_non_us_re.search(text or ""))
+
+
 _sophomore_re = re.compile("|".join(SOPHOMORE_PATTERNS), re.IGNORECASE)
 _junior_re = re.compile("|".join(JUNIOR_PATTERNS), re.IGNORECASE)
 _candidate_re = re.compile("|".join(CANDIDATE_KEYWORDS), re.IGNORECASE)

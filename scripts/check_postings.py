@@ -13,7 +13,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from classify import classify, is_candidate
+from classify import classify, is_candidate, is_non_us_location
 from emailer import send_alerts
 from fetchers import fetch_for_firm, close_browser
 
@@ -101,6 +101,8 @@ def main():
         for cand in result.candidates:
             if not is_candidate(cand["title"]):
                 continue  # e.g. unrelated full-time roles on a general job board
+            if is_non_us_location(cand["title"]):
+                continue  # user only wants US postings
             pid = posting_id(firm_id, cand["url"])
             current_ids.add(pid)
             status = classify(cand["title"])
