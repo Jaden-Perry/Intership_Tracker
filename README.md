@@ -4,7 +4,7 @@ Checks bulge bracket, elite boutique/middle market, PE, asset management, and
 wealth management career pages hourly (47 firms) for new sophomore- and
 junior-eligible internship
 postings, emails an alert when something new shows up, and publishes a
-dashboard via GitHub Pages. Also sends a twice-daily "markets brief" email —
+dashboard via GitHub Pages. Also sends a daily "markets brief" email —
 an interview-prep-focused rundown of what's moving in markets and why, built
 for answering the classic "walk me through the markets" interview question.
 
@@ -27,8 +27,8 @@ for answering the classic "walk me through the markets" interview question.
 ### Markets brief
 
 - `scripts/market_brief.py` runs on a schedule (GitHub Actions,
-  `.github/workflows/market_brief.yml`), weekdays only, ~7am ET (before the
-  open) and ~5pm ET (after the close). Run manually any time from the
+  `.github/workflows/market_brief.yml`), weekdays only, once a day
+  after the close (~5:30pm ET). Run manually any time from the
   Actions tab ("Markets brief" → Run workflow) to test.
 - `scripts/market_data.py` pulls index/yield/commodity levels (S&P 500, Dow,
   Nasdaq, VIX, 10-year Treasury yield, crude, gold, dollar index) from
@@ -41,7 +41,8 @@ for answering the classic "walk me through the markets" interview question.
   and deal activity relevant to the firms in `config/firms.json`, and a
   "jargon of the day" explainer. This LLM step is what makes it a genuine
   explainer instead of a reformatted headline list — it costs roughly a
-  couple cents per email (a few cents a day across both runs).
+  roughly 7 cents per email (the model's
+  "thinking" step adds output tokens), so about $3/month at one brief a day.
 - Add/edit tracked tickers or RSS feeds in `config/market_brief.json`.
 
 ## One-time setup

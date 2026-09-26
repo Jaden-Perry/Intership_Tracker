@@ -2,15 +2,14 @@ name: Markets brief
 
 on:
   schedule:
-    - cron: "0 11 * * 1-5"   # ~7am ET (weekdays), before market open
-    - cron: "0 21 * * 1-5"   # ~5pm ET (weekdays), after market close
+    - cron: "30 21 * * 1-5"   # 5:30pm EDT / 4:30pm EST (weekdays), after market close
   workflow_dispatch:
     inputs:
       run_type:
         description: "Brief type"
         type: choice
-        options: [morning, evening]
-        default: morning
+        options: [evening, morning]
+        default: evening
 
 jobs:
   send-brief:
@@ -36,12 +35,10 @@ jobs:
       - name: Determine run type
         id: run_type
         run: |
-          if [ "${{ github.event.schedule }}" = "0 21 * * 1-5" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ]; then
             echo "value=evening" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "0 11 * * 1-5" ]; then
-            echo "value=morning" >> "$GITHUB_OUTPUT"
           else
-            echo "value=${{ inputs.run_type || 'morning' }}" >> "$GITHUB_OUTPUT"
+            echo "value=${{ inputs.run_type || 'evening' }}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Send brief
