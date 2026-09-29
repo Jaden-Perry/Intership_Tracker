@@ -1,13 +1,23 @@
-"""Daily job: build and send the markets brief email.
+"""Job: build and send the markets brief email.
+
+Runs hourly (weekdays) rather than at one fixed time, because GitHub Actions
+noticeably delays infrequent scheduled workflows (observed 2-3.5h drift on a
+once-a-day cron) but keeps hourly ones on time within a couple minutes. When
+MARKET_BRIEF_GATE=1 (set by the scheduled trigger, not manual runs), this
+skips unless it's after market close AND today's brief hasn't been sent yet
+(tracked in data/market_brief_state.json) - so whichever hourly check is the
+first one after close to actually run is the one that sends it.
 
 Usage: python market_brief.py [morning|evening]
 Env vars: RESEND_API_KEY, ALERT_EMAIL, ALERT_FROM_EMAIL (optional),
-          ANTHROPIC_API_KEY
+          ANTHROPIC_API_KEY, MARKET_BRIEF_GATE (optional, "1" to gate)
 """
 import datetime
 import json
+import os
 import sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from brief_writer import generate_brief_html
 from emailer import send_market_brief
@@ -18,6 +28,9 @@ from market_news import fetch_headlines
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config" / "market_brief.json"
 FIRMS_PATH = ROOT / "config" / "firms.json"
+STATE_PATH = ROOT / "data" / "market_brief_state.json"
+
+MARKET_CLOSE_HOUR_ET = 16  # 4:00pm ET
 
 CATEGORY_LABELS = {
     "bulge_bracket": "bulge bracket banks",
@@ -47,12 +60,34 @@ def build_recruiting_context() -> str:
     return "; ".join(parts)
 
 
-def main() -> None:
-    run_type = sys.argv[1] if len(sys.argv) > 1 else "morning"
-    if run_type not in ("morning", "evening"):
-        run_type = "morning"
+def _load_state() -> dict:
+    try:
+        return json.loads(STATE_PATH.read_text())
+    except Exception:
+        return {}
 
-    today = datetime.date.today()
+
+def _save_state(state: dict) -> None:
+    STATE_PATH.write_text(json.dumps(state, indent=2) + "\n")
+
+
+def main() -> None:
+    run_type = sys.argv[1] if len(sys.argv) > 1 else "evening"
+    if run_type not in ("morning", "evening"):
+        run_type = "evening"
+
+    et_now = datetime.datetime.now(ZoneInfo("America/New_York"))
+    today = et_now.date()
+    gated = os.environ.get("MARKET_BRIEF_GATE") == "1"
+
+    if gated:
+        if et_now.hour < MARKET_CLOSE_HOUR_ET:
+            print(f"market_brief: {et_now:%H:%M} ET is before market close, skipping")
+            return
+        if _load_state().get("last_sent_date") == today.isoformat():
+            print(f"market_brief: already sent today ({today}), skipping")
+            return
+
     if is_us_market_holiday(today):
         print(f"market_brief: {today} is a US market holiday, skipping")
         return
@@ -80,6 +115,8 @@ def main() -> None:
     label = "Morning" if run_type == "morning" else "Evening"
     subject = f"{label} Markets Brief — {date_str}"
     send_market_brief(html, subject)
+    if gated:
+        _save_state({"last_sent_date": today.isoformat()})
     print(f"market_brief: sent {run_type} brief for {date_str}")
 
 

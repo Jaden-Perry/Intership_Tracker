@@ -2,7 +2,7 @@ name: Markets brief
 
 on:
   schedule:
-    - cron: "30 21 * * 1-5"   # 5:30pm EDT / 4:30pm EST (weekdays), after market close
+    - cron: "20 * * * 1-5"   # hourly (weekdays), at :20 past the hour
   workflow_dispatch:
     inputs:
       run_type:
@@ -10,6 +10,9 @@ on:
         type: choice
         options: [evening, morning]
         default: evening
+
+permissions:
+  contents: write
 
 jobs:
   send-brief:
@@ -47,4 +50,29 @@ jobs:
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           ALERT_FROM_EMAIL: ${{ secrets.ALERT_FROM_EMAIL }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Only the automatic hourly trigger gates on "after close, not
+          # already sent today" - a manual run always sends immediately.
+          MARKET_BRIEF_GATE: ${{ github.event_name == 'schedule' && '1' || '' }}
         run: python scripts/market_brief.py ${{ steps.run_type.outputs.value }}
+
+      - name: Record brief-sent state
+        run: |
+          git config user.name "market-brief-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -f data/market_brief_state.json ]; then
+            git add data/market_brief_state.json
+          fi
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Record markets brief sent [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "::error::failed to push brief-sent state after 5 attempts"
+          exit 1

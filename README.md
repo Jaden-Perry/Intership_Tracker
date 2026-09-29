@@ -26,23 +26,33 @@ for answering the classic "walk me through the markets" interview question.
 
 ### Markets brief
 
-- `scripts/market_brief.py` runs on a schedule (GitHub Actions,
-  `.github/workflows/market_brief.yml`), weekdays only, once a day
-  after the close (~5:30pm ET). Run manually any time from the
-  Actions tab ("Markets brief" → Run workflow) to test.
+- `scripts/market_brief.py` runs *hourly* on weekdays (GitHub Actions,
+  `.github/workflows/market_brief.yml`), but only actually sends once a day:
+  each run checks whether it's after market close (4pm ET) and whether
+  today's brief has already been sent (tracked in
+  `data/market_brief_state.json`), skipping otherwise. It runs hourly rather
+  than at one fixed time because GitHub Actions noticeably delays infrequent
+  scheduled workflows (a once-a-day cron here drifted 2-3.5 hours late) but
+  keeps hourly ones on time within a couple minutes — so whichever hourly
+  check is first to run after close is the one that sends it, bounding the
+  worst-case delay to about an hour. Run manually any time from the Actions
+  tab ("Markets brief" → Run workflow) to test — manual runs always send
+  immediately, ignoring the after-close/already-sent gate.
 - `scripts/market_data.py` pulls index/yield/commodity levels (S&P 500, Dow,
   Nasdaq, VIX, 10-year Treasury yield, crude, gold, dollar index) from
   Yahoo Finance's public chart endpoint — free, no API key.
 - `scripts/market_news.py` pulls headlines from a handful of public RSS
-  feeds (CNBC, MarketWatch, WSJ Markets, Yahoo Finance) — also free, no key.
+  feeds (CNBC, MarketWatch, WSJ Markets, Yahoo Finance, the Federal Reserve's
+  own press releases) — also free, no key. Each headline carries its publish
+  time so the brief can tell stale speculation apart from confirmed news.
 - `scripts/brief_writer.py` sends that data to Claude (Anthropic API), which
   writes the actual brief: an interview-ready talking point, an interpreted
   (not just restated) market snapshot, a handful of stories tied to sectors
   and deal activity relevant to the firms in `config/firms.json`, and a
   "jargon of the day" explainer. This LLM step is what makes it a genuine
-  explainer instead of a reformatted headline list — it costs roughly a
-  roughly 7 cents per email (the model's
-  "thinking" step adds output tokens), so about $3/month at one brief a day.
+  explainer instead of a reformatted headline list — it costs roughly 7
+  cents per email (the model's "thinking" step adds output tokens), so
+  about $1.50/month at one brief a day.
 - Add/edit tracked tickers or RSS feeds in `config/market_brief.json`.
 
 ## One-time setup
