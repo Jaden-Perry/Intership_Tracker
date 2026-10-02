@@ -49,14 +49,23 @@ NAMED_SOPHOMORE_PROGRAMS = [
     r"\bstrategic resources\b",      # William Blair
 ]
 
+# "Discovery"/"Insight(s)" alone are too generic for a candidate/sophomore
+# signal — they also show up as team or product names on ordinary full-time
+# roles (e.g. Fidelity's "Manager, Analytics & Performance Insights"). Require
+# internship-shaped context around them. Shared between SOPHOMORE_PATTERNS and
+# CANDIDATE_KEYWORDS so both stay in sync.
+_DISCOVERY_PATTERN = r"\bdiscovery\b.{0,20}\b(program|internship|day|week)\b"
+_INSIGHT_DAY_PATTERN = r"\binsight\s+(day|days|week|weeks|forum|program|summit)\b"
+_EARLY_INSIGHT_PATTERN = r"\bearly[- ]?insight[s]?\b"
+
 SOPHOMORE_PATTERNS = [
     r"\bsophomore\b",
     r"\bfreshman\b",
     r"\bfirst[- ]?year\b",
     r"\bunderclassm[ae]n\b",
-    r"\bdiscovery\b.{0,20}\b(program|internship|day|week)\b",
-    r"\binsight\s+(day|days|week|weeks|forum|program|summit)\b",
-    r"\bearly[- ]?insight[s]?\b",
+    _DISCOVERY_PATTERN,
+    _INSIGHT_DAY_PATTERN,
+    _EARLY_INSIGHT_PATTERN,
     r"\bexplore\s+opportunities\b",
     r"\bwomen'?s?\s+(program|network|summit)\b",
     r"\bdiversity\s+(program|summit|initiative)\b",
@@ -82,8 +91,9 @@ CANDIDATE_KEYWORDS = [
     r"\bsummer\s+associate\b",
     r"\bsophomore\b",
     r"\bfreshman\b",
-    r"\bdiscovery\b",
-    r"\binsight[s]?\b",
+    _DISCOVERY_PATTERN,
+    _INSIGHT_DAY_PATTERN,
+    _EARLY_INSIGHT_PATTERN,
     r"\bpossibilities\b",
     r"\bearly[- ]?career\b",
     r"\bstudent[s]?\b",
@@ -92,6 +102,42 @@ CANDIDATE_KEYWORDS = [
     r"\bexternship\b",
     *NAMED_SOPHOMORE_PROGRAMS,
 ]
+
+# Common full-time/professional job-title markers. If one of these shows up
+# WITHOUT any accompanying internship-specific signal (intern, summer
+# analyst/associate, sophomore/freshman, student, campus, undergrad,
+# externship, or a named sophomore program), the posting is a full-time role
+# that only matched CANDIDATE_KEYWORDS incidentally (e.g. a department name
+# like "Performance Insights") and should be dropped rather than surfaced as
+# "needs review." This is a general safety net, not tied to any one firm.
+FULL_TIME_ROLE_MARKERS = [
+    r"\bmanager\b", r"\bdirector\b", r"\bvice president\b", r"\bvp\b",
+    r"\bhead of\b", r"\bsenior\b", r"\blead\b", r"\bofficer\b",
+    r"\bengineer\b", r"\bspecialist\b", r"\bconsultant\b", r"\bprincipal\b",
+    r"\bchief\b", r"\bexecutive\b", r"\badministrator\b", r"\bcoordinator\b",
+    r"\bsupervisor\b",
+]
+STRONG_INTERNSHIP_SIGNALS = [
+    r"\bintern(ship)?\b",
+    r"\bsummer\s+analyst\b",
+    r"\bsummer\s+associate\b",
+    r"\bsophomore\b",
+    r"\bfreshman\b",
+    r"\bstudent[s]?\b",
+    r"\bcampus\b",
+    r"\bundergrad(uate)?\b",
+    r"\bexternship\b",
+    *NAMED_SOPHOMORE_PROGRAMS,
+]
+_full_time_re = re.compile("|".join(FULL_TIME_ROLE_MARKERS), re.IGNORECASE)
+_strong_internship_re = re.compile("|".join(STRONG_INTERNSHIP_SIGNALS), re.IGNORECASE)
+
+
+def is_full_time_role(text: str) -> bool:
+    """Whether a title looks like a full-time/professional role rather than
+    an internship, i.e. it has a full-time marker and no internship signal."""
+    text = text or ""
+    return bool(_full_time_re.search(text) and not _strong_internship_re.search(text))
 
 # Region codes and city/country names that unambiguously mean a posting is
 # NOT in the US. Firms tag postings this way in the title itself (e.g.
