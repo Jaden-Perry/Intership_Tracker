@@ -55,7 +55,7 @@ NAMED_SOPHOMORE_PROGRAMS = [
 # internship-shaped context around them. Shared between SOPHOMORE_PATTERNS and
 # CANDIDATE_KEYWORDS so both stay in sync.
 _DISCOVERY_PATTERN = r"\bdiscovery\b.{0,20}\b(program|internship|day|week)\b"
-_INSIGHT_DAY_PATTERN = r"\binsight\s+(day|days|week|weeks|forum|program|summit)\b"
+_INSIGHT_DAY_PATTERN = r"\binsights?\s+(day|days|week|weeks|forum|program|programs|summit)\b"
 _EARLY_INSIGHT_PATTERN = r"\bearly[- ]?insight[s]?\b"
 
 SOPHOMORE_PATTERNS = [
