@@ -4,21 +4,21 @@
     "firm": "Goldman Sachs",
     "program_name": "Possibilities Series (freshman/sophomore)",
     "program_keyword": "Possibilities",
-    "note": "Confirmed recurring program; not yet posted for this cycle as of last check."
+    "note": "Confirmed recurring program; not detected by the tracker yet."
   },
   {
     "firm_id": "jpmorgan",
     "firm": "JPMorgan Chase",
-    "program_name": "Sophomore Edge",
-    "program_keyword": "Sophomore Edge",
-    "note": "Confirmed recurring program; JPM also runs affinity-specific sophomore tracks (Winning Women, Launching Leaders) that rotate year to year."
+    "program_name": "IB & Markets Insights Program (registration is OPEN now)",
+    "program_keyword": "Insights Program",
+    "note": "Registration deadline Thu Oct 15, 2026 12:00pm ET. Events Dec 2-4, 2026 (Investment Banking in Chicago, New York, San Francisco; Markets in New York). For undergrads graduating Dec 2028-Jun 2029; 3.6 min GPA and U.S. work authorization required. This is an event registration page, not a job posting, so the tracker cannot detect it -- verify and register on JPMorgan's site."
   },
   {
     "firm_id": "bank_of_america",
     "firm": "Bank of America",
     "program_name": "Global Investment Banking Sophomore Summer Analyst Program",
     "program_keyword": "Sophomore",
-    "note": "Confirmed recurring program; not yet posted for this cycle as of last check."
+    "note": "Confirmed recurring program; not detected by the tracker yet."
   },
   {
     "firm_id": "morgan_stanley_ibd",
@@ -32,7 +32,7 @@
     "firm": "Citi",
     "program_name": "Sophomore Leadership Program",
     "program_keyword": "Sophomore Leadership",
-    "note": "10-week NYC program historically requiring 3.3+ GPA; not yet posted as of last check."
+    "note": "10-week NYC program historically requiring 3.3+ GPA; not detected by the tracker yet."
   },
   {
     "firm_id": "evercore",
@@ -46,7 +46,7 @@
     "firm": "Moelis & Company",
     "program_name": "Leadership Development Program (LDP)",
     "program_keyword": "Leadership Development",
-    "note": "January event for sophomores; not yet posted as of last check."
+    "note": "January event for sophomores; not detected by the tracker yet."
   },
   {
     "firm_id": "lazard",
@@ -60,7 +60,7 @@
     "firm": "Rothschild & Co",
     "program_name": "US Global Advisory Sophomore Leadership Program / Sophomore Women's Program",
     "program_keyword": "Sophomore",
-    "note": "Not yet posted as of last check."
+    "note": "Not detected by the tracker yet."
   },
   {
     "firm_id": "guggenheim",
@@ -81,21 +81,21 @@
     "firm": "Morgan Stanley Wealth Management",
     "program_name": "Wealth Management Sophomore Summer Analyst Program (New York)",
     "program_keyword": "Sophomore",
-    "note": "Could not confirm a 2027-labeled posting is live yet as of last check."
+    "note": "No 2027-labeled posting detected by the tracker yet."
   },
   {
     "firm_id": "piper_sandler",
     "firm": "Piper Sandler",
     "program_name": "Career Exploration Program (CEP)",
     "program_keyword": "Career Exploration",
-    "note": "2-day February program, open to all majors, explicitly for sophomores; not yet posted as of last check."
+    "note": "2-day February program, open to all majors, explicitly for sophomores; not detected by the tracker yet."
   },
   {
     "firm_id": "robert_w_baird",
     "firm": "Robert W. Baird",
     "program_name": "Women in Banking Sophomore Internship",
     "program_keyword": "Women in Banking",
-    "note": "Diversity-focused sophomore pipeline; site is bot-blocked so scraping confidence is very_low — worth checking this one manually."
+    "note": "Diversity-focused sophomore pipeline; site is bot-blocked so scraping confidence is very_low \u2014 worth checking this one manually."
   },
   {
     "firm_id": "warburg_pincus",
@@ -109,14 +109,14 @@
     "firm": "Vista Equity Partners",
     "program_name": "Rising Sophomore Program",
     "program_keyword": "Rising Sophomore",
-    "note": "6-week paid program via KIPP/Posse Foundation partnerships; not yet posted as of last check."
+    "note": "6-week paid program via KIPP/Posse Foundation partnerships; not detected by the tracker yet."
   },
   {
     "firm_id": "silver_lake",
     "firm": "Silver Lake",
     "program_name": "Distinguished Scholars Program",
     "program_keyword": "Distinguished Scholars",
-    "note": "Women-focused, cohort-based, not job-board driven — recruiting here is relationship-driven, so this is worth checking manually rather than relying only on the scraper."
+    "note": "Women-focused, cohort-based, not job-board driven \u2014 recruiting here is relationship-driven, so this is worth checking manually rather than relying only on the scraper."
   },
   {
     "firm_id": "advent_international",

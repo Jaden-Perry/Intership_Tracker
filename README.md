@@ -15,7 +15,9 @@ for answering the classic "walk me through the markets" interview question.
   Chromium (via Playwright) and pulls out links whose text looks like an
   internship/program posting.
 - Each candidate is classified as **open_now** (sophomore-eligible),
-  **not_yet_eligible** (junior-year Summer Analyst), or **unknown**, using
+  **not_yet_eligible** (Summer Analyst postings for other class years, e.g. 2027),
+  or **unknown**. A "2028 Summer Analyst" posting counts as open_now, since that
+  is this user's own class. Classification uses
   keyword rules in `scripts/classify.py`.
 - Results are diffed against `data/state.json` (committed to the repo, so
   state persists between runs). Anything new triggers an email via Resend

@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import sys
+from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -49,6 +50,14 @@ def normalize_url_for_id(url: str) -> str:
 
 def posting_id(firm_id: str, url: str) -> str:
     return hashlib.sha1(f"{firm_id}|{normalize_url_for_id(url)}".encode()).hexdigest()[:16]
+
+
+def location_text(title: str, url: str) -> str:
+    """Title plus the URL path with separators turned into spaces. Workday
+    puts the job's location only in the URL (".../job/Mumbai-India/..."), so
+    checking the title alone let non-US roles through."""
+    path = urlparse(url).path.replace("-", " ").replace("_", " ").replace("/", " ")
+    return f"{title} {path}"
 
 
 def load_json(path: Path, default):
@@ -103,11 +112,15 @@ def main():
                 continue  # e.g. unrelated full-time roles on a general job board
             if is_full_time_role(cand["title"]):
                 continue  # e.g. "Manager, Performance Insights" matching bare "insight"
-            if is_non_us_location(cand["title"]):
+            if is_non_us_location(location_text(cand["title"], cand["url"])):
                 continue  # user only wants US postings
             pid = posting_id(firm_id, cand["url"])
             current_ids.add(pid)
             status = classify(cand["title"])
+            if firm.get("info_page_source"):
+                # Links here are program info pages / job-board homepages, not
+                # individual postings, so we can't claim anything is open.
+                status = "unknown"
 
             existing = seen.get(pid)
             if existing is None:

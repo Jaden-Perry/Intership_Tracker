@@ -4,49 +4,70 @@
     "name": "Goldman Sachs",
     "category": "bulge_bracket",
     "confidence": "high",
-    "fetch": { "type": "html", "url": "https://higher.gs.com/campus" }
+    "fetch": {
+      "type": "html",
+      "url": "https://higher.gs.com/campus"
+    }
   },
   {
     "id": "jpmorgan",
     "name": "JPMorgan Chase",
     "category": "bulge_bracket",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://careers.jpmorgan.com/us/en/students/programs" }
+    "fetch": {
+      "type": "html",
+      "url": "https://careers.jpmorgan.com/us/en/students/programs"
+    }
   },
   {
     "id": "bank_of_america",
     "name": "Bank of America",
     "category": "bulge_bracket",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://careers.bankofamerica.com/en-us/students/job-search.html" }
+    "fetch": {
+      "type": "html",
+      "url": "https://careers.bankofamerica.com/en-us/students/job-search.html"
+    }
   },
   {
     "id": "morgan_stanley_ibd",
     "name": "Morgan Stanley (Investment Banking)",
     "category": "bulge_bracket",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://morganstanley.eightfold.ai/careers?query=Summer%20Analyst%20Sophomore%20Program%20Early%20Insights" }
+    "fetch": {
+      "type": "html",
+      "url": "https://morganstanley.eightfold.ai/careers?query=Summer%20Analyst%20Sophomore%20Program%20Early%20Insights"
+    }
   },
   {
     "id": "citi",
     "name": "Citi",
     "category": "bulge_bracket",
     "confidence": "high",
-    "fetch": { "type": "html", "url": "https://jobs.citi.com/summer-analyst-programs" }
+    "fetch": {
+      "type": "html",
+      "url": "https://jobs.citi.com/summer-analyst-programs"
+    }
   },
   {
     "id": "evercore",
     "name": "Evercore",
     "category": "eb_mm",
     "confidence": "high",
-    "fetch": { "type": "html", "url": "https://evercore.tal.net/vx/lang-en-GB/mobile-0/channel-1/appcentre-ext/brand-6/candidate/jobboard/vacancy/2/adv/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://evercore.tal.net/vx/lang-en-GB/mobile-0/channel-1/appcentre-ext/brand-6/candidate/jobboard/vacancy/2/adv/"
+    }
   },
   {
     "id": "moelis",
     "name": "Moelis & Company",
     "category": "eb_mm",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://www.moelis.com/careers/explore-opportunities/?tab=students-and-graduates" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.moelis.com/careers/explore-opportunities/?tab=students-and-graduates"
+    }
   },
   {
     "id": "pjt_partners",
@@ -65,21 +86,32 @@
     "name": "Lazard",
     "category": "eb_mm",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://www.lazard.com/careers/students/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.lazard.com/careers/students/"
+    },
+    "info_page_source": true
   },
   {
     "id": "centerview",
     "name": "Centerview Partners",
     "category": "eb_mm",
     "confidence": "very_low",
-    "fetch": { "type": "html", "url": "https://www.centerviewpartners.com/careers.aspx" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.centerviewpartners.com/careers.aspx"
+    }
   },
   {
     "id": "rothschild",
     "name": "Rothschild & Co",
     "category": "eb_mm",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/"
+    },
+    "info_page_source": true
   },
   {
     "id": "guggenheim",
@@ -110,7 +142,10 @@
     "name": "KKR",
     "category": "pe",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "staged" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "staged"
+    }
   },
   {
     "id": "apollo",
@@ -141,7 +176,10 @@
     "name": "Morgan Stanley Wealth Management",
     "category": "wm",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://morganstanley.eightfold.ai/careers?query=Wealth%20Management%20Summer%20Analyst%20Sophomore" }
+    "fetch": {
+      "type": "html",
+      "url": "https://morganstanley.eightfold.ai/careers?query=Wealth%20Management%20Summer%20Analyst%20Sophomore"
+    }
   },
   {
     "id": "houlihan_lokey",
@@ -160,21 +198,30 @@
     "name": "Perella Weinberg Partners",
     "category": "eb_mm",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://pwpartners.com/careers/intern-graduate-recruitment/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://pwpartners.com/careers/intern-graduate-recruitment/"
+    }
   },
   {
     "id": "william_blair",
     "name": "William Blair",
     "category": "eb_mm",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "williamblair" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "williamblair"
+    }
   },
   {
     "id": "robert_w_baird",
     "name": "Robert W. Baird",
     "category": "eb_mm",
     "confidence": "very_low",
-    "fetch": { "type": "html", "url": "https://www.bairdcareers.com/internships/global-investment-banking-intern-program-us/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.bairdcareers.com/internships/global-investment-banking-intern-program-us/"
+    }
   },
   {
     "id": "harris_williams",
@@ -193,7 +240,10 @@
     "name": "Jefferies",
     "category": "eb_mm",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://www.jefferies.com/careers/students-and-graduates/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.jefferies.com/careers/students-and-graduates/"
+    }
   },
   {
     "id": "piper_sandler",
@@ -226,42 +276,60 @@
     "name": "Qatalyst Partners",
     "category": "eb_mm",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://qatalyst.com/careers" }
+    "fetch": {
+      "type": "html",
+      "url": "https://qatalyst.com/careers"
+    }
   },
   {
     "id": "solomon_partners",
     "name": "Solomon Partners",
     "category": "eb_mm",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "solomonpartnersstudentsgraduates" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "solomonpartnersstudentsgraduates"
+    }
   },
   {
     "id": "tpg",
     "name": "TPG",
     "category": "pe",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "tpgcareers" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "tpgcareers"
+    }
   },
   {
     "id": "warburg_pincus",
     "name": "Warburg Pincus",
     "category": "pe",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "warburgpincusllc" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "warburgpincusllc"
+    }
   },
   {
     "id": "silver_lake",
     "name": "Silver Lake",
     "category": "pe",
     "confidence": "very_low",
-    "fetch": { "type": "html", "url": "https://www.silverlake.com/careers/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.silverlake.com/careers/"
+    }
   },
   {
     "id": "vista_equity_partners",
     "name": "Vista Equity Partners",
     "category": "pe",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://www.vistaequitypartners.com/careers/open-positions/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.vistaequitypartners.com/careers/open-positions/"
+    }
   },
   {
     "id": "bain_capital",
@@ -280,14 +348,20 @@
     "name": "Thoma Bravo",
     "category": "pe",
     "confidence": "very_low",
-    "fetch": { "type": "html", "url": "https://www.thomabravo.com/careers" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.thomabravo.com/careers"
+    }
   },
   {
     "id": "general_atlantic",
     "name": "General Atlantic",
     "category": "pe",
     "confidence": "high",
-    "fetch": { "type": "greenhouse_api", "board_token": "gacampus" }
+    "fetch": {
+      "type": "greenhouse_api",
+      "board_token": "gacampus"
+    }
   },
   {
     "id": "advent_international",
@@ -306,7 +380,10 @@
     "name": "Hellman & Friedman",
     "category": "pe",
     "confidence": "very_low",
-    "fetch": { "type": "html", "url": "https://www.hf.com/careers" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.hf.com/careers"
+    }
   },
   {
     "id": "ares_management",
@@ -325,7 +402,10 @@
     "name": "BlackRock",
     "category": "am",
     "confidence": "medium",
-    "fetch": { "type": "html", "url": "https://careers.blackrock.com/students-and-graduates-americas" }
+    "fetch": {
+      "type": "html",
+      "url": "https://careers.blackrock.com/students-and-graduates-americas"
+    }
   },
   {
     "id": "fidelity",
@@ -368,7 +448,10 @@
     "name": "T. Rowe Price",
     "category": "am",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://troweprice.gr8people.com/jobs" }
+    "fetch": {
+      "type": "html",
+      "url": "https://troweprice.gr8people.com/jobs"
+    }
   },
   {
     "id": "capital_group",
@@ -425,6 +508,9 @@
     "name": "Janus Henderson",
     "category": "am",
     "confidence": "low",
-    "fetch": { "type": "html", "url": "https://www.janushenderson.com/corporate/careers/early-careers/" }
+    "fetch": {
+      "type": "html",
+      "url": "https://www.janushenderson.com/corporate/careers/early-careers/"
+    }
   }
 ]
