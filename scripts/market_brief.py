@@ -92,20 +92,21 @@ def main() -> None:
         print(f"market_brief: {today} is a US market holiday, skipping")
         return
 
-    config = json.loads(CONFIG_PATH.read_text())
-    market_data = fetch_index_data(config["tickers"])
-    headlines = fetch_headlines(config["feeds"])
-
-    if not market_data and not headlines:
-        print("market_brief: no market data or headlines fetched, skipping send")
-        return
-
     date_str = today.strftime("%A, %B %d, %Y")
     # Evening runs happen after today's close, so today's session is the
     # latest one. Morning runs happen before the open, so the market data
     # actually reflects the most recently completed (prior) session.
     session_date = today if run_type == "evening" else previous_trading_day(today)
     session_date_str = session_date.strftime("%A, %B %d, %Y")
+
+    config = json.loads(CONFIG_PATH.read_text())
+    market_data = fetch_index_data(config["tickers"], session_date)
+    headlines = fetch_headlines(config["feeds"])
+
+    if not any(not m["unavailable"] for m in market_data) and not headlines:
+        print("market_brief: no market data or headlines fetched, skipping send")
+        return
+
     recruiting_context = build_recruiting_context()
 
     html = generate_brief_html(

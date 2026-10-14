@@ -19,6 +19,12 @@ def _strip_code_fence(text: str) -> str:
 
 
 def _format_market_line(m: dict) -> str:
+    if m.get("unavailable"):
+        return (
+            f"- {m['label']}: DATA UNAVAILABLE this run (the feed only had stale "
+            f"data). Do not state any level or % move for it; say it's "
+            f"unavailable if you mention it at all."
+        )
     line = f"- {m['label']}: {m['price']:.2f}"
     if m["pct_change"] is not None:
         line += f" ({m['pct_change']:+.2f}% vs. previous close)"
