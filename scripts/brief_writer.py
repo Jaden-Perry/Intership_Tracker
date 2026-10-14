@@ -25,6 +25,11 @@ def _format_market_line(m: dict) -> str:
             f"data). Do not state any level or % move for it; say it's "
             f"unavailable if you mention it at all."
         )
+    if m.get("change_bps") is not None:
+        return (
+            f"- {m['label']}: {m['price']:.3f}% "
+            f"({m['change_bps']:+.1f} bps vs. previous close)"
+        )
     line = f"- {m['label']}: {m['price']:.2f}"
     if m["pct_change"] is not None:
         line += f" ({m['pct_change']:+.2f}% vs. previous close)"
@@ -94,7 +99,10 @@ using ONLY inline styles (email clients strip <style> blocks). Cover, in this or
    must reflect ONLY the number's arithmetic sign — green for positive, red for negative — \
    never whether the move is "good" or "bad" news for markets. A rising VIX or rising yield \
    is still a positive percentage and must be green; do not recolor it red because rising \
-   volatility or rates reads as bad news. The market data below is as of the close of the \
+   volatility or rates reads as bad news. Quote Treasury yield moves in basis points (bps) \
+   exactly as given in the data, never as a percentage change of the yield (e.g. "10-year \
+   down 2 bps", not "-0.4%"); the same sign-based green/red rule applies to the bps figure. \
+   The market data below is as of the close of the \
    {session_date_str} session — label the snapshot section with that date explicitly (e.g. \
    "Snapshot — {session_date_str} close") so it's never mistaken for live, same-moment data. \
    {"This is a morning run sent before today's open, so this is yesterday's/the last completed session's numbers, not anything that's happened yet today." if run_type == "morning" else "This is an evening run sent after today's close, so this is today's full-session move."}

@@ -4,7 +4,7 @@
     { "symbol": "^DJI", "label": "Dow Jones Industrial Average" },
     { "symbol": "^IXIC", "label": "Nasdaq Composite" },
     { "symbol": "^VIX", "label": "VIX (volatility index)" },
-    { "symbol": "^TNX", "label": "10-Year Treasury Yield" },
+    { "symbol": "^TNX", "label": "10-Year Treasury Yield", "kind": "yield" },
     { "symbol": "CL=F", "label": "WTI Crude Oil" },
     { "symbol": "GC=F", "label": "Gold" },
     { "symbol": "DX-Y.NYB", "label": "US Dollar Index (DXY)" }

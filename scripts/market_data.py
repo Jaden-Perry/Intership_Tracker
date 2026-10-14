@@ -96,12 +96,20 @@ def fetch_index_data(tickers: list[dict], min_date: date) -> list[dict]:
         ]
         prev_close = closes[-2] if len(closes) >= 2 else None
         pct_change = (price - prev_close) / prev_close * 100 if prev_close else None
+        # Yahoo's yield tickers quote the yield itself in percent (5.217 =
+        # 5.217%), so one percentage point of yield is 100 bps.
+        change_bps = (
+            (price - prev_close) * 100
+            if t.get("kind") == "yield" and prev_close
+            else None
+        )
         out.append(
             {
                 "label": t["label"],
                 "symbol": symbol,
                 "price": price,
                 "pct_change": pct_change,
+                "change_bps": change_bps,
                 "unavailable": False,
             }
         )
