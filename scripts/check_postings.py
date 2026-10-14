@@ -83,6 +83,7 @@ def main():
     run_time = now_iso()
     new_postings = []
     firm_status = []
+    unverified_firm_ids = set()  # firms we couldn't read cleanly this run
 
     for firm in firms:
         firm_id, name, category = firm["id"], firm["name"], firm["category"]
@@ -95,9 +96,11 @@ def main():
 
         if error:
             firm_status.append({"firm": name, "status": "error", "detail": error, "checked_at": run_time})
+            unverified_firm_ids.add(firm_id)
             continue
 
         if result.low_confidence:
+            unverified_firm_ids.add(firm_id)
             firm_status.append({
                 "firm": name, "status": "low_confidence",
                 "detail": "Page returned little content — scrape may be incomplete; verify config/firms.json URL.",
@@ -144,9 +147,13 @@ def main():
                 existing["status"] = status  # re-classify in case title text changed
 
         # Anything belonging to this firm not seen in this successful fetch is delisted.
-        for pid, entry in seen.items():
-            if entry["firm_id"] == firm_id and pid not in current_ids:
-                entry["currently_listed"] = False
+        # A low-confidence read (e.g. a bot-check page instead of the job list)
+        # proves nothing about what's still posted, so keep the last-known state
+        # rather than wiping the firm's postings.
+        if not result.low_confidence:
+            for pid, entry in seen.items():
+                if entry["firm_id"] == firm_id and pid not in current_ids:
+                    entry["currently_listed"] = False
 
     close_browser()
 
@@ -155,9 +162,9 @@ def main():
     save_json(STATE_PATH, state)
 
     # Build dashboard buckets
-    open_now = [e for e in seen.values() if e["currently_listed"] and e["status"] == "open_now"]
-    not_yet_eligible = [e for e in seen.values() if e["currently_listed"] and e["status"] == "not_yet_eligible"]
-    needs_review = [e for e in seen.values() if e["currently_listed"] and e["status"] == "unknown"]
+    open_now = [{**e, "unverified": e["firm_id"] in unverified_firm_ids} for e in seen.values() if e["currently_listed"] and e["status"] == "open_now"]
+    not_yet_eligible = [{**e, "unverified": e["firm_id"] in unverified_firm_ids} for e in seen.values() if e["currently_listed"] and e["status"] == "not_yet_eligible"]
+    needs_review = [{**e, "unverified": e["firm_id"] in unverified_firm_ids} for e in seen.values() if e["currently_listed"] and e["status"] == "unknown"]
 
     detected_program_keys = {(e["firm_id"]) for e in open_now}
     opens_soon = [

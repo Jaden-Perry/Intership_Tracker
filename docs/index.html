@@ -107,6 +107,7 @@ function renderPostings(elId, items, titleFn) {
         <div class="firm">${escapeHtml(p.firm)}</div>
         <div class="title">${escapeHtml(titleFn(p))}</div>
         <div class="sub">First seen ${new Date(p.first_seen).toLocaleDateString()}</div>
+        ${p.unverified ? '<div class="sub" style="color: var(--soon)">Couldn\'t re-check this run (firm\'s site didn\'t load the listings) — last confirmed ' + new Date(p.last_seen).toLocaleDateString() + '</div>' : ''}
       </div>
       <a class="btn" href="${escapeAttr(p.url)}" target="_blank" rel="noopener">Open</a>
     `;
