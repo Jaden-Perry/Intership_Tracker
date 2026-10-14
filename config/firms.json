@@ -54,6 +54,7 @@
     "name": "Evercore",
     "category": "eb_mm",
     "confidence": "high",
+    "known_blind_spot": "Evercore's job board (evercore.tal.net) shows a 'confirm you're a real person' check to automated readers, so postings here are often unreadable. Check the board manually.",
     "fetch": {
       "type": "html",
       "url": "https://evercore.tal.net/vx/lang-en-GB/mobile-0/channel-1/appcentre-ext/brand-6/candidate/jobboard/vacancy/2/adv/"
@@ -64,6 +65,7 @@
     "name": "Moelis & Company",
     "category": "eb_mm",
     "confidence": "medium",
+    "known_blind_spot": "Moelis's real job board (moelis-careers.tal.net) shows a 'confirm you're a real person' check to automated readers; only the static info page is read here, so new postings (e.g. 2028 Summer Analyst) are not seen. Check the board manually.",
     "fetch": {
       "type": "html",
       "url": "https://www.moelis.com/careers/explore-opportunities/?tab=students-and-graduates"
@@ -107,6 +109,7 @@
     "name": "Rothschild & Co",
     "category": "eb_mm",
     "confidence": "medium",
+    "known_blind_spot": "Rothschild's real job board (rothschildandco.tal.net) shows a 'confirm you're a real person' check to automated readers; only the static info page is read here, so new postings are not seen. Check the board manually.",
     "fetch": {
       "type": "html",
       "url": "https://www.rothschildandco.com/en/careers/students-and-graduates/opportunities/"
@@ -218,6 +221,7 @@
     "name": "Robert W. Baird",
     "category": "eb_mm",
     "confidence": "very_low",
+    "known_blind_spot": "Baird's careers site (bairdcareers.com) sits behind a Cloudflare check and applications run through Workday/Handshake, so new postings are not reliably seen here. Check the site manually.",
     "fetch": {
       "type": "html",
       "url": "https://www.bairdcareers.com/internships/global-investment-banking-intern-program-us/"

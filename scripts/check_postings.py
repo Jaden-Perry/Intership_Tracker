@@ -109,6 +109,10 @@ def main():
         else:
             firm_status.append({"firm": name, "status": "ok", "checked_at": run_time})
 
+        if firm.get("known_blind_spot") and firm_status[-1]["status"] == "ok":
+            # We read *a* page for this firm, but not the real job board.
+            firm_status[-1] = {"firm": name, "status": "limited", "detail": firm["known_blind_spot"], "checked_at": run_time}
+
         current_ids = set()
         for cand in result.candidates:
             if not is_candidate(cand["title"]):

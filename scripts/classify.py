@@ -47,6 +47,7 @@ NAMED_SOPHOMORE_PROGRAMS = [
     r"\baccelerate program\b",       # Advent International
     r"\bpimco prep\b",               # PIMCO
     r"\bstrategic resources\b",      # William Blair
+    r"\bfast track to investment banking\b",  # William Blair sophomore event; final round feeds its 2028 Summer Analyst class
 ]
 
 # "Discovery"/"Insight(s)" alone are too generic for a candidate/sophomore
