@@ -44,17 +44,30 @@ for answering the classic "walk me through the markets" interview question.
   Nasdaq, VIX, 10-year Treasury yield, crude, gold, dollar index) from
   Yahoo Finance's public chart endpoint — free, no API key.
 - `scripts/market_news.py` pulls headlines from a handful of public RSS
-  feeds (CNBC, MarketWatch, WSJ Markets, Yahoo Finance, the Federal Reserve's
-  own press releases) — also free, no key. Each headline carries its publish
-  time so the brief can tell stale speculation apart from confirmed news.
+  feeds (CNBC, MarketWatch, WSJ Markets, the Federal Reserve's own press
+  releases) — also free, no key. Each headline carries its publish time so
+  the brief can tell stale speculation apart from confirmed news. FOMC
+  statements are expanded to the official statement text (the Fed's RSS item
+  is only a title), and the Fed feed is "pinned" so recent releases can't age
+  out of the window. Feed health is checked every run (feedparser silently
+  returns nothing on HTTP errors): problems are logged as `WARNING source
+  problem`, and the email gets a "source coverage was reduced" note.
 - `scripts/brief_writer.py` sends that data to Claude (Anthropic API), which
   writes the actual brief: an interview-ready talking point, an interpreted
   (not just restated) market snapshot, a handful of stories tied to sectors
   and deal activity relevant to the firms in `config/firms.json`, and a
   "jargon of the day" explainer. This LLM step is what makes it a genuine
-  explainer instead of a reformatted headline list — it costs roughly 7
-  cents per email (the model's "thinking" step adds output tokens), so
-  about $1.50/month at one brief a day.
+  explainer instead of a reformatted headline list.
+- After writing, `audit_brief_html` runs a second pass that checks every
+  factual claim (Fed decisions, earnings, economic data, causes of moves,
+  numbers) against only the source material the writer had, and fixes or
+  removes anything contradicted or unsupported; a footer in the email lists
+  what it corrected. Snapshot figures are also checked deterministically
+  against the fetched data. It can only check against the feeds, not the
+  outside world, so it reduces errors rather than eliminating them. If the
+  audit itself fails, the email is still sent but with a visible "NOT
+  fact-checked" warning. Both calls use the Anthropic API (the model's
+  "thinking" step adds output tokens): roughly 14 cents per brief, about $3/month.
 - Add/edit tracked tickers or RSS feeds in `config/market_brief.json`.
 
 ## One-time setup

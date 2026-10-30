@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from brief_writer import generate_brief_html
+from brief_writer import audit_brief_html, coverage_footer, generate_brief_html
 from emailer import send_market_brief
 from market_calendar import is_us_market_holiday, previous_trading_day
 from market_data import fetch_index_data
@@ -101,7 +101,7 @@ def main() -> None:
 
     config = json.loads(CONFIG_PATH.read_text())
     market_data = fetch_index_data(config["tickers"], session_date)
-    headlines = fetch_headlines(config["feeds"])
+    headlines, feed_problems = fetch_headlines(config["feeds"])
 
     if not any(not m["unavailable"] for m in market_data) and not headlines:
         print("market_brief: no market data or headlines fetched, skipping send")
@@ -112,6 +112,12 @@ def main() -> None:
     html = generate_brief_html(
         run_type, date_str, session_date_str, market_data, headlines, recruiting_context
     )
+    html, audit_issues = audit_brief_html(
+        html, run_type, session_date_str, market_data, headlines
+    )
+    for issue in audit_issues:
+        print(f"market_brief: audit: {issue}")
+    html += coverage_footer(feed_problems)
 
     label = "Morning" if run_type == "morning" else "Evening"
     subject = f"{label} Markets Brief — {date_str}"
