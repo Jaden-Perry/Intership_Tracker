@@ -139,6 +139,30 @@ _full_time_re = re.compile("|".join(FULL_TIME_ROLE_MARKERS), re.IGNORECASE)
 _strong_internship_re = re.compile("|".join(STRONG_INTERNSHIP_SIGNALS), re.IGNORECASE)
 
 
+# Engineering/IT roles. Applied even to internships ("Software Engineer Summer
+# Intern" has an internship signal, so is_full_time_role() lets it through).
+# "Technology" alone is NOT a marker: it is also an investment-banking coverage
+# group (Lazard "Summer Analyst - Boston Technology", Evercore "Global
+# Technology"). Only the IT-division title shapes seen on real boards are matched:
+# "Technology Summer Analyst" (BofA/Wells Fargo), "Technology, Application
+# Development, ..." (Citi) and Piper's "Summer Internship Program - Technology".
+ENGINEERING_ROLE_MARKERS = [
+    r"\bengineer(s|ing)?\b", r"\bsoftware\b", r"\bdevelopers?\b", r"\bdevops\b",
+    r"\bfull[- ]?stack\b", r"\bmainframe\b", r"\bcyber\s*security\b", r"\bcyber\b",
+    r"\binformation security\b", r"\bapplication development\b", r"\bproduction support\b",
+    r"\bmachine learning\b", r"\bdata scien(ce|tist)s?\b",
+    r"\btechnology\s+summer\s+(analyst|intern(ship)?)\b",
+    r"^\s*(\d{4}\s+)?technology\s*[,:\-–]",
+    r"\bsummer\s+internship\s+program\s*[-–]\s*technology\b",
+]
+_engineering_re = re.compile("|".join(ENGINEERING_ROLE_MARKERS), re.IGNORECASE)
+
+
+def is_engineering_role(text: str) -> bool:
+    """Whether a title is an engineering/software/IT role (not wanted)."""
+    return bool(_engineering_re.search(text or ""))
+
+
 _recruiter_job_re = re.compile(
     r"\brecruit(er|ing)\s+(coordinator|associate|analyst|manager|partner|specialist)\b", re.IGNORECASE)
 

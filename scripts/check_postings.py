@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
-from classify import classify, is_candidate, is_non_us_location, is_full_time_role, is_graduate_level
+from classify import classify, is_candidate, is_non_us_location, is_full_time_role, is_graduate_level, is_engineering_role
 from emailer import send_alerts
 from fetchers import fetch_for_firm, close_browser
 
@@ -119,6 +119,8 @@ def main():
                 continue  # e.g. unrelated full-time roles on a general job board
             if is_full_time_role(cand["title"]):
                 continue  # e.g. "Manager, Performance Insights" matching bare "insight"
+            if is_engineering_role(cand["title"]):
+                continue  # user doesn't want engineering/IT roles
             if is_graduate_level(cand["title"], firm.get("summer_associate_is_graduate", False)):
                 continue  # MBA/JD programs (incl. "Summer Associate"): not for an undergrad
             if is_non_us_location(location_text(cand["title"], cand["url"], cand.get("location", ""))):
