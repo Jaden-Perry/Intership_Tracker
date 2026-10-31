@@ -76,8 +76,7 @@ def close_browser():
         _browser_ctx["playwright"] = None
 
 
-def fetch_html(url: str) -> FetchResult:
-    """Render the page with headless Chromium and scrape the resulting DOM."""
+def _render_page(url: str):
     browser = _get_browser()
     page = browser.new_page(user_agent=HEADERS["User-Agent"])
     try:
@@ -86,13 +85,37 @@ def fetch_html(url: str) -> FetchResult:
             page.wait_for_load_state("networkidle", timeout=15_000)
         except Exception:
             pass  # some sites never go idle (polling widgets); use what we have
-        html = page.content()
-        final_url = page.url
+        # Lazy-loaded lists (e.g. Eightfold) only render more rows as you scroll.
+        for _ in range(5):
+            page.mouse.wheel(0, 4000)
+            page.wait_for_timeout(600)
+        return page.content(), page.url
     finally:
         page.close()
 
+
+def fetch_html(url: str, paginate: dict = None) -> FetchResult:
+    """Render the page with headless Chromium and scrape the resulting DOM.
+
+    paginate={"param": "p", "max_pages": 10} also reads ?p=2, ?p=3, ... until a
+    page adds nothing new. Without it a paginated board is read only on page 1
+    (Citi's board has 44 postings across 3 pages)."""
+    html, final_url = _render_page(url)
     candidates, visible_text_len = _extract_candidates_from_html(html, final_url)
     low_confidence = visible_text_len < 500
+
+    if paginate and not low_confidence:
+        seen = {c["url"] for c in candidates}
+        param = paginate.get("param", "p")
+        for n in range(2, paginate.get("max_pages", 10) + 1):
+            sep = "&" if "?" in url else "?"
+            more_html, more_url = _render_page(f"{url}{sep}{param}={n}")
+            more, _ = _extract_candidates_from_html(more_html, more_url)
+            fresh = [c for c in more if c["url"] not in seen]
+            if not fresh:
+                break
+            seen.update(c["url"] for c in fresh)
+            candidates.extend(fresh)
     return FetchResult(candidates, low_confidence=low_confidence)
 
 
@@ -124,6 +147,7 @@ def fetch_workday(
     api_url: str = None,
     job_base: str = None,
     title_must_contain: str = None,
+    search_texts: list = None,
 ) -> FetchResult:
     """title_must_contain is a client-side safety net for shared-tenant Workday
     boards (e.g. Greenhill postings living inside Mizuho's feed, PGIM inside
@@ -136,6 +160,18 @@ def fetch_workday(
         api_url = api_url or derived_api
         job_base = job_base or derived_base
 
+    # Big boards (e.g. Wells Fargo, 1,500+ jobs) can't be read in full within
+    # the page cap, so a firm may list several search terms; results are unioned.
+    candidates, seen_urls = [], set()
+    for term in (search_texts or [search_text]):
+        for c in _workday_search(api_url, job_base, term, title_must_contain):
+            if c["url"] not in seen_urls:
+                seen_urls.add(c["url"])
+                candidates.append(c)
+    return FetchResult(candidates)
+
+
+def _workday_search(api_url, job_base, search_text, title_must_contain):
     candidates = []
     offset = 0
     limit = 20
@@ -169,9 +205,106 @@ def fetch_workday(
                 continue
             if title_must_contain and title_must_contain.lower() not in title.lower():
                 continue
-            candidates.append({"title": title, "url": job_base + path})
+            candidates.append({"title": title, "url": job_base + path, "location": p.get("locationsText", "")})
         offset += limit
 
+    return candidates
+
+
+def fetch_oracle_hcm(host: str, site: str, us_only: bool = True) -> FetchResult:
+    """Oracle Recruiting Cloud (HCM) public job API, used by JPMorgan, Lazard and
+    Jefferies. Unlike their marketing pages, it lists every real posting and
+    isn't behind a bot check. us_only narrows the query to the United States
+    facet so a 7,000-job board becomes ~5,000 and non-US roles never load."""
+    base = f"https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+    headers = {**HEADERS, "Accept": "application/json"}
+
+    def call(finder: str, expand: bool = True) -> dict:
+        params = {"onlyData": "true", "finder": finder}
+        if expand:
+            params["expand"] = "requisitionList.secondaryLocations"
+        r = requests.get(base, params=params, headers=headers, timeout=90)
+        r.raise_for_status()
+        return r.json()["items"][0]
+
+    loc_filter = ""
+    if us_only:
+        facets = call(f"findReqs;siteNumber={site},limit=1,facetsList=LOCATIONS", expand=False).get("locationsFacet", [])
+        us = next((f for f in facets if f.get("Name") == "United States"), None)
+        if us:
+            loc_filter = f",selectedLocationsFacet={us['Id']}"
+
+    candidates, offset, total = [], 0, None
+    while total is None or offset < total:
+        item = call(f"findReqs;siteNumber={site}{loc_filter},limit=200,offset={offset},sortBy=POSTING_DATES_DESC")
+        if total is None:
+            total = item.get("TotalJobsCount", 0)
+        rows = item.get("requisitionList", [])
+        if not rows:
+            break
+        for q in rows:
+            if q.get("Title") and q.get("Id"):
+                candidates.append({
+                    "title": q["Title"],
+                    "url": f"https://{host}/hcmUI/CandidateExperience/en/sites/{site}/job/{q['Id']}",
+                    "location": q.get("PrimaryLocation", ""),
+                })
+        offset += 200
+    return FetchResult(candidates)
+
+
+def fetch_goldman() -> FetchResult:
+    """Goldman's job site (higher.gs.com) is a bot-checked app that a headless
+    browser only ever saw the first 20 results of. It's backed by a GraphQL
+    API; experiences=["CAMPUS"] is the filter its Students board uses."""
+    query = """query GetRoles($searchQueryInput: RoleSearchQueryInput!) {
+      roleSearch(searchQueryInput: $searchQueryInput) {
+        totalCount
+        items { roleId jobTitle locations { city state country } }
+      }
+    }"""
+    headers = {**HEADERS, "Origin": "https://higher.gs.com", "Referer": "https://higher.gs.com/"}
+    candidates, page, total = [], 0, None
+    while total is None or page * 100 < total:
+        variables = {"searchQueryInput": {
+            "page": {"pageSize": 100, "pageNumber": page},
+            "sort": {"sortStrategy": "RELEVANCE", "sortOrder": "DESC"},
+            "filters": [], "experiences": ["CAMPUS"], "searchTerm": "",
+        }}
+        r = requests.post("https://api-higher.gs.com/gateway/api/v1/graphql",
+                          json={"query": query, "variables": variables}, headers=headers, timeout=60)
+        r.raise_for_status()
+        body = r.json()
+        if body.get("errors") or not (body.get("data") or {}).get("roleSearch"):
+            raise RuntimeError(f"Goldman GraphQL error: {str(body.get('errors'))[:200]}")
+        rs = body["data"]["roleSearch"]
+        if total is None:
+            total = rs["totalCount"]
+        if not rs["items"]:
+            break
+        for it in rs["items"]:
+            loc = (it.get("locations") or [{}])[0]
+            where = ", ".join(x for x in (loc.get("city"), loc.get("state"), loc.get("country")) if x)
+            role_num = str(it["roleId"]).split("_")[0]
+            candidates.append({"title": it["jobTitle"], "url": f"https://higher.gs.com/roles/{role_num}", "location": where})
+        page += 1
+    return FetchResult(candidates)
+
+
+def fetch_bofa() -> FetchResult:
+    """Bank of America's student job search shows 10 postings per page, but the
+    campus-jobs API behind it returns the whole board (about 30) in one call."""
+    r = requests.get(
+        "https://careers.bankofamerica.com/services/campusjobssearchservlet",
+        params={"start": 0, "rows": 1000, "search": "getAllJobs"},
+        headers={**HEADERS, "Accept": "application/json"}, timeout=60,
+    )
+    r.raise_for_status()
+    candidates = []
+    for j in r.json().get("jobsList", []):
+        if j.get("postingTitle") and j.get("jcrURL"):
+            where = ", ".join(x for x in (j.get("city"), j.get("state"), j.get("country")) if x)
+            candidates.append({"title": j["postingTitle"], "url": "https://careers.bankofamerica.com" + j["jcrURL"], "location": where})
     return FetchResult(candidates)
 
 
@@ -199,7 +332,14 @@ def fetch_for_firm(fetch_cfg: dict) -> FetchResult:
             api_url=fetch_cfg.get("api_url"),
             job_base=fetch_cfg.get("job_base"),
             title_must_contain=fetch_cfg.get("title_must_contain"),
+            search_texts=fetch_cfg.get("search_texts"),
         )
+    if ftype == "oracle_hcm_api":
+        return fetch_oracle_hcm(fetch_cfg["host"], fetch_cfg["site"], fetch_cfg.get("us_only", True))
+    if ftype == "goldman_api":
+        return fetch_goldman()
+    if ftype == "bofa_api":
+        return fetch_bofa()
     if ftype == "greenhouse_api":
         return fetch_greenhouse(fetch_cfg["board_token"])
-    return fetch_html(fetch_cfg["url"])
+    return fetch_html(fetch_cfg["url"], paginate=fetch_cfg.get("paginate"))

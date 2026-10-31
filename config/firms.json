@@ -5,28 +5,28 @@
     "category": "bulge_bracket",
     "confidence": "high",
     "fetch": {
-      "type": "html",
-      "url": "https://higher.gs.com/campus"
+      "type": "goldman_api"
     }
   },
   {
     "id": "jpmorgan",
     "name": "JPMorgan Chase",
     "category": "bulge_bracket",
-    "confidence": "medium",
+    "confidence": "high",
     "fetch": {
-      "type": "html",
-      "url": "https://careers.jpmorgan.com/us/en/students/programs"
-    }
+      "type": "oracle_hcm_api",
+      "host": "jpmc.fa.oraclecloud.com",
+      "site": "CX_1001"
+    },
+    "summer_associate_is_graduate": true
   },
   {
     "id": "bank_of_america",
     "name": "Bank of America",
     "category": "bulge_bracket",
-    "confidence": "medium",
+    "confidence": "high",
     "fetch": {
-      "type": "html",
-      "url": "https://careers.bankofamerica.com/en-us/students/job-search.html"
+      "type": "bofa_api"
     }
   },
   {
@@ -46,7 +46,87 @@
     "confidence": "high",
     "fetch": {
       "type": "html",
-      "url": "https://jobs.citi.com/summer-analyst-programs"
+      "url": "https://jobs.citi.com/summer-analyst-programs",
+      "paginate": {
+        "param": "p",
+        "max_pages": 8
+      }
+    }
+  },
+  {
+    "id": "wells_fargo",
+    "name": "Wells Fargo",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs",
+      "api_url": "https://wf.wd1.myworkdayjobs.com/wday/cxs/wf/WellsFargoJobs/jobs",
+      "job_base": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs",
+      "search_texts": [
+        "Summer Internship",
+        "Summer Analyst",
+        "Sophomore",
+        "Insights Program"
+      ]
+    },
+    "summer_associate_is_graduate": true
+  },
+  {
+    "id": "truist_securities",
+    "name": "Truist Securities",
+    "category": "eb_mm",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://truist.wd1.myworkdayjobs.com/Careers",
+      "api_url": "https://truist.wd1.myworkdayjobs.com/wday/cxs/truist/Careers/jobs",
+      "job_base": "https://truist.wd1.myworkdayjobs.com/Careers",
+      "search_texts": [
+        "2028",
+        "Summer Analyst",
+        "Summer Internship",
+        "Sophomore",
+        "Insights Program"
+      ]
+    }
+  },
+  {
+    "id": "barclays",
+    "name": "Barclays",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays",
+      "api_url": "https://barclays.wd3.myworkdayjobs.com/wday/cxs/barclays/External_Career_Site_Barclays/jobs",
+      "job_base": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays",
+      "search_texts": [
+        "2028",
+        "Summer Analyst",
+        "Summer Internship",
+        "Sophomore",
+        "Insights Program"
+      ]
+    }
+  },
+  {
+    "id": "deutsche_bank",
+    "name": "Deutsche Bank",
+    "category": "bulge_bracket",
+    "confidence": "medium",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://db.wd3.myworkdayjobs.com/DBWebsite",
+      "api_url": "https://db.wd3.myworkdayjobs.com/wday/cxs/db/DBWebsite/jobs",
+      "job_base": "https://db.wd3.myworkdayjobs.com/DBWebsite",
+      "search_texts": [
+        "2028",
+        "Summer Analyst",
+        "Summer Internship",
+        "Sophomore",
+        "Insights Program"
+      ]
     }
   },
   {
@@ -87,12 +167,13 @@
     "id": "lazard",
     "name": "Lazard",
     "category": "eb_mm",
-    "confidence": "low",
+    "confidence": "high",
     "fetch": {
-      "type": "html",
-      "url": "https://www.lazard.com/careers/students/"
+      "type": "oracle_hcm_api",
+      "host": "icbpjb.fa.ocs.oraclecloud.com",
+      "site": "LazardStudentCareers"
     },
-    "info_page_source": true
+    "summer_associate_is_graduate": true
   },
   {
     "id": "centerview",
@@ -243,10 +324,11 @@
     "id": "jefferies",
     "name": "Jefferies",
     "category": "eb_mm",
-    "confidence": "low",
+    "confidence": "medium",
     "fetch": {
-      "type": "html",
-      "url": "https://www.jefferies.com/careers/students-and-graduates/"
+      "type": "oracle_hcm_api",
+      "host": "hdid.fa.us2.oraclecloud.com",
+      "site": "CX_1001"
     }
   },
   {

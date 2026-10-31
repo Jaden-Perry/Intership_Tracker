@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
-from classify import classify, is_candidate, is_non_us_location, is_full_time_role
+from classify import classify, is_candidate, is_non_us_location, is_full_time_role, is_graduate_level
 from emailer import send_alerts
 from fetchers import fetch_for_firm, close_browser
 
@@ -52,12 +52,12 @@ def posting_id(firm_id: str, url: str) -> str:
     return hashlib.sha1(f"{firm_id}|{normalize_url_for_id(url)}".encode()).hexdigest()[:16]
 
 
-def location_text(title: str, url: str) -> str:
+def location_text(title: str, url: str, location: str = "") -> str:
     """Title plus the URL path with separators turned into spaces. Workday
     puts the job's location only in the URL (".../job/Mumbai-India/..."), so
     checking the title alone let non-US roles through."""
     path = urlparse(url).path.replace("-", " ").replace("_", " ").replace("/", " ")
-    return f"{title} {path}"
+    return f"{title} {path} {location}"
 
 
 def load_json(path: Path, default):
@@ -119,7 +119,9 @@ def main():
                 continue  # e.g. unrelated full-time roles on a general job board
             if is_full_time_role(cand["title"]):
                 continue  # e.g. "Manager, Performance Insights" matching bare "insight"
-            if is_non_us_location(location_text(cand["title"], cand["url"])):
+            if is_graduate_level(cand["title"], firm.get("summer_associate_is_graduate", False)):
+                continue  # MBA/JD programs (incl. "Summer Associate"): not for an undergrad
+            if is_non_us_location(location_text(cand["title"], cand["url"], cand.get("location", ""))):
                 continue  # user only wants US postings
             pid = posting_id(firm_id, cand["url"])
             current_ids.add(pid)

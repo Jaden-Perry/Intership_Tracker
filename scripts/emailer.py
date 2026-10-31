@@ -19,6 +19,11 @@ def send_alerts(new_postings: list[dict]) -> None:
     to_email = os.environ["ALERT_EMAIL"]
     from_email = os.environ.get("ALERT_FROM_EMAIL") or "onboarding@resend.dev"
 
+    # Postings the user can act on now go first; a big batch (e.g. after a firm
+    # is added) would otherwise bury them under other class years.
+    order = {"open_now": 0, "unknown": 1, "not_yet_eligible": 2}
+    new_postings = sorted(new_postings, key=lambda p: (order.get(p.get("status"), 1), p["firm"]))
+
     subject = f"{len(new_postings)} new internship posting" + (
         "s" if len(new_postings) != 1 else ""
     )
