@@ -55,8 +55,23 @@ def _source_blocks(market_data: list[dict], headlines: list[dict]) -> tuple[str,
     return market_lines, headline_lines
 
 
-def _call_claude(system: str, user: str) -> tuple[str, str]:
-    """One Messages API call. Returns (text, stop_reason); raises on API failure."""
+def _call_claude(system: str, user: str, effort: str | None = None) -> tuple[str, str]:
+    """One Messages API call. Returns (text, stop_reason); raises on API failure.
+
+    The model thinks adaptively and thinking shares max_tokens with the answer:
+    when thinking uses the whole budget the response holds only a thinking
+    block (stop_reason "max_tokens", no text). The fact-check re-emits the full
+    brief, so it needs headroom beyond what the writer does. effort ("low" ...
+    "max") caps how hard it thinks; None leaves the model's default.
+    """
+    body = {
+        "model": MODEL,
+        "max_tokens": 16000,
+        "system": system,
+        "messages": [{"role": "user", "content": user}],
+    }
+    if effort:
+        body["output_config"] = {"effort": effort}
     resp = requests.post(
         ANTHROPIC_URL,
         headers={
@@ -64,13 +79,8 @@ def _call_claude(system: str, user: str) -> tuple[str, str]:
             "anthropic-version": "2023-06-01",
             "content-type": "application/json",
         },
-        json={
-            "model": MODEL,
-            "max_tokens": 8000,
-            "system": system,
-            "messages": [{"role": "user", "content": user}],
-        },
-        timeout=180,
+        json=body,
+        timeout=300,
     )
     if not resp.ok:
         print(f"Anthropic API error {resp.status_code}: {resp.text}")
@@ -79,7 +89,12 @@ def _call_claude(system: str, user: str) -> tuple[str, str]:
     for block in data["content"]:
         if block.get("type") == "text":
             return _strip_code_fence(block["text"]), data.get("stop_reason", "")
-    raise RuntimeError(f"No text content block in Anthropic response: {data}")
+    # Keep this short: it ends up in the email's warning banner.
+    raise RuntimeError(
+        f"no text block in response (stop_reason={data.get('stop_reason')}, "
+        f"output_tokens={(data.get('usage') or {}).get('output_tokens')}, "
+        f"blocks={[b.get('type') for b in data['content']]})"
+    )
 
 
 def _mechanical_mismatches(draft: str, market_data: list[dict]) -> list[str]:
@@ -329,9 +344,11 @@ DRAFT:
 {draft}
 """
     last_err = "unknown error"
-    for attempt in (1, 2):
+    # A second attempt thinks less ("low" effort), so a first attempt that ran
+    # out of tokens on thinking isn't just repeated identically.
+    for attempt, effort in enumerate((None, "low"), start=1):
         try:
-            text, stop_reason = _call_claude(AUDIT_SYSTEM, user_prompt)
+            text, stop_reason = _call_claude(AUDIT_SYSTEM, user_prompt, effort=effort)
             if stop_reason == "max_tokens":
                 raise RuntimeError("audit output truncated (max_tokens)")
             parsed = _parse_audit(text)
