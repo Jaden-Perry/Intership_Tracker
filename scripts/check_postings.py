@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
-from classify import classify, is_candidate, is_non_us_location, is_full_time_role, is_graduate_level, is_engineering_role
+from classify import classify, is_candidate, is_non_us_location, is_full_time_role, is_graduate_level, is_engineering_role, is_equity_research
 from emailer import send_alerts
 from fetchers import fetch_for_firm, close_browser
 
@@ -80,6 +80,12 @@ def main():
     state = load_json(STATE_PATH, {"seen": {}})
     seen = state.setdefault("seen", {})
 
+    # Firms removed from config (e.g. private equity) shouldn't linger on the
+    # dashboard: nothing would ever mark their postings delisted.
+    active_firm_ids = {f["id"] for f in firms}
+    for pid in [p for p, e in seen.items() if e["firm_id"] not in active_firm_ids]:
+        del seen[pid]
+
     run_time = now_iso()
     new_postings = []
     firm_status = []
@@ -143,6 +149,7 @@ def main():
                     "title": cand["title"],
                     "url": cand["url"],
                     "status": status,
+                    "track": "equity_research" if is_equity_research(cand["title"]) else None,
                     "first_seen": run_time,
                     "last_seen": run_time,
                     "currently_listed": True,
@@ -153,6 +160,7 @@ def main():
                 existing["last_seen"] = run_time
                 existing["currently_listed"] = True
                 existing["status"] = status  # re-classify in case title text changed
+                existing["track"] = "equity_research" if is_equity_research(cand["title"]) else None
 
         # Anything belonging to this firm not seen in this successful fetch is delisted.
         # A low-confidence read (e.g. a bot-check page instead of the job list)

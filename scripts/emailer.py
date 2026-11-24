@@ -30,7 +30,7 @@ def send_alerts(new_postings: list[dict]) -> None:
 
     rows = "\n".join(
         f'<tr><td style="padding:8px;border-bottom:1px solid #eee">{p["firm"]}</td>'
-        f'<td style="padding:8px;border-bottom:1px solid #eee">{p["title"]}</td>'
+        f'<td style="padding:8px;border-bottom:1px solid #eee">{"<b>[Equity Research]</b> " if p.get("track") == "equity_research" else ""}{p["title"]}</td>'
         f'<td style="padding:8px;border-bottom:1px solid #eee">{p["status_label"]}</td>'
         f'<td style="padding:8px;border-bottom:1px solid #eee">'
         f'<a href="{p["url"]}">Open</a></td></tr>'

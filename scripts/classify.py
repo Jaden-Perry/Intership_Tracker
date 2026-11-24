@@ -55,6 +55,7 @@ NAMED_SOPHOMORE_PROGRAMS = [
     r"\bpimco prep\b",               # PIMCO
     r"\bstrategic resources\b",      # William Blair
     r"\bfast track to investment banking\b",  # William Blair sophomore event; final round feeds its 2028 Summer Analyst class
+    r"\bequity\s+research\s+bridge\s+program\b",  # Stifel sophomore ER program
 ]
 
 # "Discovery"/"Insight(s)" alone are too generic for a candidate/sophomore
@@ -152,6 +153,7 @@ ENGINEERING_ROLE_MARKERS = [
     r"\binformation security\b", r"\bapplication development\b", r"\bproduction support\b",
     r"\bmachine learning\b", r"\bdata scien(ce|tist)s?\b",
     r"\btechnology\s+summer\s+(analyst|intern(ship)?)\b",
+    r"\btechnology\s+support\b",
     r"^\s*(\d{4}\s+)?technology\s*[,:\-–]",
     r"\bsummer\s+internship\s+program\s*[-–]\s*technology\b",
 ]
@@ -254,7 +256,9 @@ def _is_eligible_year(text: str) -> bool:
 # open to this user whatever the year. "Summer Internship" is included because
 # some firms (e.g. Wells Fargo: "2028 Investment Banking Summer Internship")
 # don't use the "Summer Analyst" name for the same undergraduate program.
-_summer_program_re = re.compile(SUMMER_ANALYST_PATTERN + r"|\bsummer\s+intern(ship)?s?\b", re.IGNORECASE)
+# A plain "Internship ... (Summer 2028)" (e.g. BMO's M&A internship) counts too
+# once the year matches.
+_summer_program_re = re.compile(SUMMER_ANALYST_PATTERN + r"|\bsummer\s+intern(ship)?s?\b|\bintern(ship)?s?\b", re.IGNORECASE)
 
 _graduate_re = re.compile(r"\b(mba|j\.?d|ph\.?d|master'?s?|post-?graduate)\b", re.IGNORECASE)
 _summer_associate_re = re.compile(r"\bsummer\s+associate\b", re.IGNORECASE)
@@ -275,6 +279,20 @@ def is_graduate_level(text: str, summer_associate_is_graduate: bool = False) -> 
     return summer_associate_is_graduate and bool(_summer_associate_re.search(text))
 
 
+# Equity research roles (user wants these flagged and surfaced). Quant/data
+# research is a different job, so it is excluded.
+_equity_research_re = re.compile(
+    r"\bequit(?:y|ies)\s+research\b|\bglobal\s+investment\s+research\b|\bequity\s+(?:research\s+)?analyst\b",
+    re.IGNORECASE,
+)
+_quant_research_re = re.compile(r"\bquant(?:itative)?\b", re.IGNORECASE)
+
+
+def is_equity_research(text: str) -> bool:
+    text = text or ""
+    return bool(_equity_research_re.search(text)) and not _quant_research_re.search(text)
+
+
 def classify(text: str) -> str:
     """Classify posting text into open_now / not_yet_eligible / unknown.
 
@@ -291,6 +309,15 @@ def classify(text: str) -> str:
         return "open_now"
     if _is_eligible_year(text) and _summer_program_re.search(text):
         return "open_now"
+    # Equity research "Summer Associate" programs are for undergrads entering
+    # their final year (e.g. RBC: "entering the final year of a four-year US
+    # college"), unlike the MBA "Summer Associate" seats elsewhere. Explicit MBA
+    # postings are already removed by is_graduate_level before we get here.
+    if is_equity_research(text) and _summer_associate_re.search(text):
+        if _is_eligible_year(text):
+            return "open_now"
+        if re.search(r"\b20\d\d\b", text):
+            return "not_yet_eligible"  # a different year's class
     if _junior_re.search(text):
         return "not_yet_eligible"
     return "unknown"

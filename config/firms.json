@@ -210,52 +210,6 @@
     }
   },
   {
-    "id": "blackstone",
-    "name": "Blackstone",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers",
-      "api_url": "https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Campus_Careers/jobs",
-      "job_base": "https://blackstone.wd1.myworkdayjobs.com/en-US/Blackstone_Campus_Careers"
-    }
-  },
-  {
-    "id": "kkr",
-    "name": "KKR",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "greenhouse_api",
-      "board_token": "staged"
-    }
-  },
-  {
-    "id": "apollo",
-    "name": "Apollo Global Management",
-    "category": "pe",
-    "confidence": "medium",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers",
-      "api_url": "https://athene.wd5.myworkdayjobs.com/wday/cxs/athene/Apollo_Careers/jobs",
-      "job_base": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers"
-    }
-  },
-  {
-    "id": "carlyle",
-    "name": "The Carlyle Group",
-    "category": "pe",
-    "confidence": "medium",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle",
-      "api_url": "https://carlyle.wd1.myworkdayjobs.com/wday/cxs/carlyle/Carlyle/jobs",
-      "job_base": "https://carlyle.wd1.myworkdayjobs.com/Carlyle"
-    }
-  },
-  {
     "id": "morgan_stanley_wm",
     "name": "Morgan Stanley Wealth Management",
     "category": "wm",
@@ -378,112 +332,6 @@
     }
   },
   {
-    "id": "tpg",
-    "name": "TPG",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "greenhouse_api",
-      "board_token": "tpgcareers"
-    }
-  },
-  {
-    "id": "warburg_pincus",
-    "name": "Warburg Pincus",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "greenhouse_api",
-      "board_token": "warburgpincusllc"
-    }
-  },
-  {
-    "id": "silver_lake",
-    "name": "Silver Lake",
-    "category": "pe",
-    "confidence": "very_low",
-    "fetch": {
-      "type": "html",
-      "url": "https://www.silverlake.com/careers/"
-    }
-  },
-  {
-    "id": "vista_equity_partners",
-    "name": "Vista Equity Partners",
-    "category": "pe",
-    "confidence": "low",
-    "fetch": {
-      "type": "html",
-      "url": "https://www.vistaequitypartners.com/careers/open-positions/"
-    }
-  },
-  {
-    "id": "bain_capital",
-    "name": "Bain Capital",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://baincapital.wd1.myworkdayjobs.com/External_Public",
-      "api_url": "https://baincapital.wd1.myworkdayjobs.com/wday/cxs/baincapital/External_Public/jobs",
-      "job_base": "https://baincapital.wd1.myworkdayjobs.com/External_Public"
-    }
-  },
-  {
-    "id": "thoma_bravo",
-    "name": "Thoma Bravo",
-    "category": "pe",
-    "confidence": "very_low",
-    "fetch": {
-      "type": "html",
-      "url": "https://www.thomabravo.com/careers"
-    }
-  },
-  {
-    "id": "general_atlantic",
-    "name": "General Atlantic",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "greenhouse_api",
-      "board_token": "gacampus"
-    }
-  },
-  {
-    "id": "advent_international",
-    "name": "Advent International",
-    "category": "pe",
-    "confidence": "low",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://adventinternational.wd12.myworkdayjobs.com/AdventAgency",
-      "api_url": "https://adventinternational.wd12.myworkdayjobs.com/wday/cxs/adventinternational/AdventAgency/jobs",
-      "job_base": "https://adventinternational.wd12.myworkdayjobs.com/AdventAgency"
-    }
-  },
-  {
-    "id": "hellman_friedman",
-    "name": "Hellman & Friedman",
-    "category": "pe",
-    "confidence": "very_low",
-    "fetch": {
-      "type": "html",
-      "url": "https://www.hf.com/careers"
-    }
-  },
-  {
-    "id": "ares_management",
-    "name": "Ares Management",
-    "category": "pe",
-    "confidence": "high",
-    "fetch": {
-      "type": "workday_api",
-      "url": "https://aresmgmt.wd1.myworkdayjobs.com/External",
-      "api_url": "https://aresmgmt.wd1.myworkdayjobs.com/wday/cxs/aresmgmt/External/jobs",
-      "job_base": "https://aresmgmt.wd1.myworkdayjobs.com/External"
-    }
-  },
-  {
     "id": "blackrock",
     "name": "BlackRock",
     "category": "am",
@@ -597,6 +445,54 @@
     "fetch": {
       "type": "html",
       "url": "https://www.janushenderson.com/corporate/careers/early-careers/"
+    }
+  },
+  {
+    "id": "rbc",
+    "name": "RBC Capital Markets",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1",
+      "api_url": "https://rbc.wd3.myworkdayjobs.com/wday/cxs/rbc/RBCGLOBAL1/jobs",
+      "job_base": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1",
+      "search_texts": [
+        "Summer Analyst",
+        "Summer Associate",
+        "Summer Internship",
+        "Equity Research",
+        "Sophomore"
+      ]
+    }
+  },
+  {
+    "id": "bmo",
+    "name": "BMO Capital Markets",
+    "category": "bulge_bracket",
+    "confidence": "high",
+    "fetch": {
+      "type": "workday_api",
+      "url": "https://bmo.wd3.myworkdayjobs.com/External",
+      "api_url": "https://bmo.wd3.myworkdayjobs.com/wday/cxs/bmo/External/jobs",
+      "job_base": "https://bmo.wd3.myworkdayjobs.com/External",
+      "search_texts": [
+        "Summer Analyst",
+        "Summer 2028",
+        "Summer 2027",
+        "Equity Research",
+        "Sophomore"
+      ]
+    }
+  },
+  {
+    "id": "stifel",
+    "name": "Stifel / KBW",
+    "category": "eb_mm",
+    "confidence": "medium",
+    "fetch": {
+      "type": "html",
+      "url": "https://careers-stifel.icims.com/jobs/search?ss=1&searchKeyword=summer&in_iframe=1"
     }
   }
 ]
