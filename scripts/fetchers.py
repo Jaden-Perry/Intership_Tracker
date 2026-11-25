@@ -9,6 +9,7 @@ Playwright and scrapes the fully-rendered DOM. A small number of firms
 reliable direct-JSON-API path instead.
 """
 import re
+import time
 from urllib.parse import urljoin, urlparse
 
 import requests
@@ -171,6 +172,25 @@ def fetch_workday(
     return FetchResult(candidates)
 
 
+def _workday_post(api_url, body):
+    """POST to a Workday CxS endpoint. Workday answers 429 (Too Many Requests)
+    when it throttles a client; since ~Nov 16 it has done so to GitHub's runner
+    IPs for most tenants. Pause and retry a couple of times (honouring
+    Retry-After, capped) rather than failing the firm on the first 429, and
+    always pace requests slightly."""
+    waits = [5, 15]
+    for attempt in range(len(waits) + 1):
+        resp = requests.post(api_url, headers={**HEADERS, "Content-Type": "application/json"}, json=body, timeout=TIMEOUT)
+        if resp.status_code != 429 or attempt == len(waits):
+            time.sleep(0.4)
+            return resp
+        try:
+            wait = min(max(float(resp.headers.get("Retry-After", 0)), waits[attempt]), 30)
+        except ValueError:
+            wait = waits[attempt]
+        time.sleep(wait)
+
+
 def _workday_search(api_url, job_base, search_text, title_must_contain):
     candidates = []
     offset = 0
@@ -180,7 +200,7 @@ def _workday_search(api_url, job_base, search_text, title_must_contain):
     # which would otherwise silently truncate the results early.
     while total is None or offset < min(total, 600):  # safety cap
         body = {"appliedFacets": {}, "limit": limit, "offset": offset, "searchText": search_text}
-        resp = requests.post(api_url, headers={**HEADERS, "Content-Type": "application/json"}, json=body, timeout=TIMEOUT)
+        resp = _workday_post(api_url, body)
         resp.raise_for_status()
         data = resp.json()
         postings = data.get("jobPostings", [])
@@ -191,7 +211,7 @@ def _workday_search(api_url, job_base, search_text, title_must_contain):
             # A later page came back empty even though we expected more —
             # could be a real end-of-results or a transient blip. Retry once
             # before trusting it and stopping.
-            resp = requests.post(api_url, headers={**HEADERS, "Content-Type": "application/json"}, json=body, timeout=TIMEOUT)
+            resp = _workday_post(api_url, body)
             resp.raise_for_status()
             data = resp.json()
             postings = data.get("jobPostings", [])
